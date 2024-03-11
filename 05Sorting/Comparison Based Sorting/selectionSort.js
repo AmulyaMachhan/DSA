@@ -1,5 +1,23 @@
-function selectionSort(arr){
+// SELECTION SORT
+// Selection sort is a simple comparison-based sorting algorithm. 
+// It sorts an array by repeatedly finding the minimum element from the unsorted part and moving it to the sorted part. 
 
+// Steps of Selection Sort
+// 1. Initialize:
+// Start with the first element of the array.
+
+// 2. Find the Minimum:
+// Look for the smallest element in the unsorted part of the array.
+
+// 3. Swap:
+// Swap the smallest found element with the first element of the unsorted part.
+
+// 4. Move the Boundary:
+// Move the boundary between the sorted and unsorted parts one element to the right.
+
+// Repeat:
+
+function selectionSort(arr){
 
     for(let i = 0 ; i<arr.length ; i++){
         let min = i;
