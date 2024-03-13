@@ -34,17 +34,3 @@ function pattern(n){
 //     1   4   6   4   1   
 //   1   5   10   10   5   1   
 // 1   6   15   20   15   6   1  
-
-
-
-
-const arr1=[1,2,3,4,5,6,7,8];
-function insertion(arr , elementInserted , indexOfElement){
-
-  for(let i= arr.length-1 ; i>=indexOfElement ; i--){
-    arr[i+1]=arr[i];
-  }
-  arr[indexOfElement]= elementInserted;
-  console.log(arr);
-}
-insertion(arr1, 10 , 3);
