@@ -1,3 +1,4 @@
+//OPTIMAL APPROACH
 function stockBuySell(array){
     let maxProfit = 0;
     let minPrice = Infinity;
