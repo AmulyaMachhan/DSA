@@ -1,26 +1,26 @@
 function nextGreaterPermutation(A) {
     let n = A.length; 
-    let ind = -1;
+    let index = -1;
     for (let i = n - 2; i >= 0; i--) {
         if (A[i] < A[i + 1]) {
-            ind = i;
+            index = i;
             break;
         }
     }
 
-    if (ind == -1) {
+    if (index == -1) {
         A.reverse();
         return A;
     }
 
-    for (let i = n - 1; i > ind; i--) {
-        if (A[i] > A[ind]) {
-            [A[i], A[ind]] = [A[ind], A[i]];
+    for (let i = n - 1; i > index; i--) {
+        if (A[i] > A[index]) {
+            [A[i], A[index]] = [A[index], A[i]];
             break;
         }
     }
 
-    A.splice(ind + 1, n - ind - 1, ...A.slice(ind + 1).reverse());
+    A.splice(index + 1, n - index - 1, ...A.slice(index + 1).reverse());
 
     return A;
 }
