@@ -1,31 +1,38 @@
-function nextGreaterPermutation(array) {
-    let n = array.length; 
+function nextGreaterPermutation(array){
     let index = -1;
-    for (let i = n - 2; i >= 0; i--) {
-        if (array[i] < array[i + 1]) {
+    let size = array.length - 1;
+    for(let i = size ; i >= 0 ; i--){
+        if(array[i] < array[i + 1] ){
             index = i;
             break;
         }
     }
 
-    if (index == -1) {
+    if(index == -1){
         array.reverse();
-        return array;
     }
 
-    for (let i = n - 1; i > index; i--) {
-        if (array[i] > array[index]) {
-            [array[i], array[index]] = [array[index], array[i]];
+    for(let i = size ; i > index ; i--){
+        if(array[i] > array[index]){
+            let temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
             break;
         }
     }
-
-    array.splice(index + 1, n - index - 1, ...array.slice(index + 1).reverse());
-
+    
+    reverse(array , index + 1 , size);
     return array;
 }
 
-let array = [2, 1, 5, 4, 3, 0, 0];
-let ans = nextGreaterPermutation(array);
+function reverse(array , leftIndex , rightIndex){
+    while(leftIndex < rightIndex){
+        let temp = array[leftIndex];
+        array[leftIndex] = array[rightIndex];
+        array[rightIndex] = temp;
+        leftIndex++;
+        rightIndex--;
+    }
+}
 
-console.log("The next permutation is: [" + ans.join(" ") + "]")
+console.log(nextGreaterPermutation([2,1,5,4,3,0,0]));
