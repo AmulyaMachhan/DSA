@@ -19,4 +19,4 @@ function longestConsecutiveSequence(array){
 
 console.log(longestConsecutiveSequence([1,2,3,4,100,200]));
 console.log(longestConsecutiveSequence([1,99,100,200]));
-console.log(longestConsecutiveSequence([0,1,2,3,5,4,5,6,7,8,9]));
+console.log(longestConsecutiveSequence([0,1,2,3,4,5,6,7,8,9]));
