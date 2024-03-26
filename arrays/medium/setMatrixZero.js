@@ -21,10 +21,11 @@ console.table(setMatrixZero([
     [1, 0, 1],
     [1, 1, 1],
   ]))
+
   
-  function setMatrixZero_1(array){
-      let rows = array.length; 
-      let cols = array[0].length;
+function setMatrixZero_1(array){
+    let rows = array.length; 
+    let cols = array[0].length;
 
     const zeroRows = new Array(rows).fill(false);
     const zeroCols = new Array(cols).fill(false);
@@ -45,7 +46,7 @@ console.table(setMatrixZero([
             }            
         }
     }
-    
+ 
     return array;
 }
 console.table(setMatrixZero_1([
