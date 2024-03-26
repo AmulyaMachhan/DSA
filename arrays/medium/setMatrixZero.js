@@ -14,7 +14,6 @@ function setMatrixZero(twoDArray){
             twoDArray[i][column] = 0;
         }
     }
-
     return twoDArray;
 }
 console.table(setMatrixZero([
