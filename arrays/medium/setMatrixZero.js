@@ -39,17 +39,10 @@ console.table(setMatrixZero([
     }
 
     for(let  i = 0 ; i < rows ; i++){
-        if(zeroRows[i]){
-            for(let  j = 0 ; j < cols ; j++){
+        for(let  j = 0 ; j < cols ; j++){
+            if(zeroRows[i] || zeroCols[j]){
                 array[i][j] = 0;
             }            
-        }
-    }
-    for(let  j = 0 ; j < cols ; j++){
-        if(zeroCols[j]){
-            for(let  i = 0 ; i < rows ; i++){
-                array[i][j] = 0;
-            }
         }
     }
     
