@@ -1,5 +1,6 @@
+
 function setMatrixZero(twoDArray){
-    let row, column;
+    let row , column;
     for(let i = 0 ; i < twoDArray.length ; i++){
         for(let j = 0 ; j <twoDArray[0].length ; j++){
             if(twoDArray[i][j] == 0){
