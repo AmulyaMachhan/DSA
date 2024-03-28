@@ -58,6 +58,53 @@ console.table(setMatrixZero_2([
     [0,1,1,1]
 ]))
 
+
+//BETTER APPROACH
+// TIME COMPLEXITY = O(N+M)*O(N+M);
+// SPACE COMPLEXITY = O(N) + O(M)
+
+
+function setMatrixZero_1(array){
+    let rows = array.length; 
+    let cols = array[0].length;
+    
+    const zeroRows = new Array(rows).fill(false);
+    const zeroCols = new Array(cols).fill(false);
+    
+    for(let  i = 0 ; i < rows ; i++){
+        for(let  j = 0 ; j < cols ; j++){
+            if(array[i][j] === 0){
+                zeroRows[i] = true;
+                zeroCols[j] = true;
+            }
+        }
+    }
+    
+    for(let  i = 0 ; i < rows ; i++){
+        for(let  j = 0 ; j < cols ; j++){
+            if(zeroRows[i] || zeroCols[j]){
+                array[i][j] = 0;
+            }            
+        }
+    }
+    
+    return array;
+}
+console.table(setMatrixZero_1([
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1],
+]));
+
+console.table(setMatrixZero_1([
+    [0,1,2,0],
+    [3,4,5,2],
+    [1,3,1,5]
+]));
+
+//BRUTE FORCE APPROACH
+//TIME COMPLEXITY ~ O(N ^3)
+//SPACE COMPLEXITY = O(1)
 function setMatrixZero(twoDArray){
     let row , column;
     for(let i = 0 ; i < twoDArray.length ; i++){
@@ -81,42 +128,3 @@ console.table(setMatrixZero([
     [1, 0, 1],
     [1, 1, 1],
   ]))
-
-  
-function setMatrixZero_1(array){
-    let rows = array.length; 
-    let cols = array[0].length;
-
-    const zeroRows = new Array(rows).fill(false);
-    const zeroCols = new Array(cols).fill(false);
-    
-    for(let  i = 0 ; i < rows ; i++){
-        for(let  j = 0 ; j < cols ; j++){
-            if(array[i][j] === 0){
-                zeroRows[i] = true;
-                zeroCols[j] = true;
-            }
-        }
-    }
-
-    for(let  i = 0 ; i < rows ; i++){
-        for(let  j = 0 ; j < cols ; j++){
-            if(zeroRows[i] || zeroCols[j]){
-                array[i][j] = 0;
-            }            
-        }
-    }
- 
-    return array;
-}
-console.table(setMatrixZero_1([
-    [1, 1, 1],
-    [1, 0, 1],
-    [1, 1, 1],
-  ]));
-
-console.table(setMatrixZero_1([
-    [0,1,2,0],
-    [3,4,5,2],
-    [1,3,1,5]
-]));
