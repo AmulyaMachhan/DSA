@@ -30,7 +30,7 @@ function rotateMatrixBy90_1(matrix){
     const rotated = new Array(matrix.length).fill().map( ()=> Array(matrix[0].length).fill(0));
 
     for(let i = 0 ; i < matrix.length ; i++){
-        for(let  j  = 0 ; j < matrix[0].length ; j++){
+        for(let  j  = 0 ; j < matrix[0].length/2 ; j++){
             rotated[j][matrix.length - i - 1] = matrix[i][j];
         }
     }
