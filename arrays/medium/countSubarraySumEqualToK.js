@@ -5,7 +5,7 @@ function countSubarraySumEqualToK(array, target) {
     let sum = array[0];
     let count = 0;
 
-    while (right <= size) {
+    while (right <= size && left <= right) {
         if (sum === target) {
             count++;
         }
