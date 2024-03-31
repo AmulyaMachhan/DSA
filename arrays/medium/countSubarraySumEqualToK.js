@@ -27,6 +27,8 @@ function countSubarraySumEqualToK(array, target) {
 console.log(countSubarraySumEqualToK([3, 1, 2, 4], 6));
 console.log(countSubarraySumEqualToK([1], 1));
 console.log(countSubarraySumEqualToK([1], 0));
+console.log(countSubarraySumEqualToK([-1,1,-1], 0));
+console.log(countSubarraySumEqualToK([-1,-1,-1], -3));// Here this method fails because it cannot count sum for negative values
 console.log("\n")
 
 //Better Approach
