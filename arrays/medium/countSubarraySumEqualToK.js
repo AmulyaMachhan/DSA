@@ -28,6 +28,7 @@ console.log(countSubarraySumEqualToK_4([1], 1));
 console.log(countSubarraySumEqualToK_4([1], 0));
 console.log(countSubarraySumEqualToK_4([-1,1,-1], 0));
 console.log(countSubarraySumEqualToK_4([-1,-1,-1], -3));
+console.log(countSubarraySumEqualToK_4([2,1,-3,3,1,1,1], 3));
 console.log("\n")
 
 //Only if all the elements in the array are positive 
