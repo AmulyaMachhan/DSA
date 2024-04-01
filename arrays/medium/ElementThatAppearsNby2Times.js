@@ -13,15 +13,7 @@ function ElementThatAppearsNby2Times_1(array){
         }else{
             count--;
         }
-    } 
-
-    let count_1 = 0; 
-    for(let i = 0 ; i<array.length ; i++){
-        if(array[i] == el){
-            count_1++;
-        }
     }
-    console.log(el);
     return el;
 }
 console.log(ElementThatAppearsNby2Times_1([2,1,1,1,2]))
