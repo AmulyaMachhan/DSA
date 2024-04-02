@@ -21,6 +21,24 @@
 // Either x is not zero or n > 0.
 // -104 <= xn <= 104
 
+// OPTIMAL APPROACH
+function myPow_1(x , n){
+    if(n === 0) return 1;
+
+    if(n < 0){
+        x = 1/x;
+        n = -n;
+    }
+
+    if( n % 2 == 0 ){
+        return myPow(x * x ,n / 2)
+    }else{
+        return x * myPow(x * x , Math.floor(n /2));
+    }
+}
+
+console.log(myPow_1(2 , 10));
+
 // BRUTE FORCE APPROACH
 function myPow(x , n){
     if(n == 0) return 1;
