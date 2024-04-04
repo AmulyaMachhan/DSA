@@ -7,10 +7,8 @@ function subArraysWithGivenXOR(array , target){
     for(let i = 0 ; i < array.length ; i++){
         xor ^= array[i];
 
-        if(xor == target){
-            count++;
-        }
         let rem = xor ^ target;
+
         count += hashMap.get(rem) || 0;
 
         hashMap.set(xor , (hashMap.get(xor) || 0) + 1)
@@ -19,6 +17,7 @@ function subArraysWithGivenXOR(array , target){
 }
 
 console.log(subArraysWithGivenXOR([4, 2, 2, 6, 4] ,  6))
+console.log(subArraysWithGivenXOR([5, 6, 7, 8, 9] ,  5))
 
 //BRUTE FORCE APPROACH 
 function subArraysWithGivenXOR_1(array , target) {
