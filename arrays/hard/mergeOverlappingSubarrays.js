@@ -1,5 +1,5 @@
 //OPTIMAL APPROACH
-function mergeOverlappingSubarrays(array){
+function mergeOverlappingSubarrays_1(array){
     array.sort((a,b) => a[0] - b[0]);
     let ans = [array[0]];
 
@@ -9,15 +9,15 @@ function mergeOverlappingSubarrays(array){
 
         if(curr[0] <= last[1]){
             last[1] = Math.max(last[1], curr[1]);
+        }else{
+            ans.push(curr);
         }
-
-        ans.push(curr[0]);
     }
 
     return ans;
 }
 
-console.table(mergeOverlappingSubarrays([[1, 3], [8, 10], [2, 6], [15, 18]]))
+console.table(mergeOverlappingSubarrays_1([[1, 3], [8, 10], [2, 6], [15, 18]]))
 //BRUTE FORCE APPRAOCH
 function mergeOverlappingSubarrays(array){
     array.sort((a,b) => a[0] - b[0]);
