@@ -1,7 +1,7 @@
 //OPTIMAL APPROACH
 //We are using two pointer approach
 function mergeTwoSortedArraysInIncreasingOrder(arr1 , arr2){
-    let left = arr1.length - 1 ;
+    let left = arr1.length - 1 ;    
     let right = 0;
 
     while(left >= 0 && right < arr2.length){
@@ -18,5 +18,5 @@ function mergeTwoSortedArraysInIncreasingOrder(arr1 , arr2){
 
     return [arr1, arr2];
 }
-
+//This is a good approach
 console.table(mergeTwoSortedArraysInIncreasingOrder([1, 4, 8, 10],[2, 3, 9]))
