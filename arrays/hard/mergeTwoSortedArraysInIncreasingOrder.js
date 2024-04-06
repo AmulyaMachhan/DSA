@@ -1,3 +1,5 @@
+//OPTIMAL APPROACH
+//We are using two pointer approach
 function mergeTwoSortedArraysInIncreasingOrder(arr1 , arr2){
     let left = arr1.length - 1 ;
     let right = 0;
