@@ -16,7 +16,7 @@ function mergeTwoSortedArraysInIncreasingOrder(arr1 , arr2){
     arr1.sort((a,b) => a - b);
     arr2.sort((a,b) => a - b);
 
-    return [arr1, arr2];
+    return [...arr1,...arr2];
 }
 //This is a good approach
 console.table(mergeTwoSortedArraysInIncreasingOrder([1, 4, 8, 10],[2, 3, 9]))
