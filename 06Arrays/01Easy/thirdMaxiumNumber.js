@@ -30,6 +30,7 @@
 // 1 <= nums.length <= 104
 // -231 <= nums[i] <= 231 - 1
 
+// BETTER APPROACH
 function thirdMaximumNumber(array){
     if(array.length === 1) return array[0];
     if(array.length === 2) return Math.max(array[0], array[1]);
