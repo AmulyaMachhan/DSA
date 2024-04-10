@@ -30,7 +30,7 @@
 // 1 <= nums.length <= 104
 // -231 <= nums[i] <= 231 - 1
 
-// OPTIMAL APPRACH
+//  APPORACH 2
 function thirdMaximumNumber_1(array){
     let max = -Infinity;
     let secondMax= -Infinity;
