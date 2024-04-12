@@ -1,0 +1,3 @@
+function appendCharacterToStringToMakeASubSequence(string , substring){
+    
+}
