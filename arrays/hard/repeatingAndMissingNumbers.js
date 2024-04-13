@@ -3,7 +3,7 @@ function repeatingAndMissingNumbers_1(array){
     let n = array.length;
 
     let SN = (n*(n+1))/2;
-    let S2N = (n*(n+1)*(2*n-1))/6;
+    let S2N = (n*(n+1)*(2*n+1))/6;
 
     let S=0 , S2=0;
     for(let i = 0 ; i < n ; i++){
