@@ -8,19 +8,20 @@ function repeatingAndMissingNumbers(array){
            hashMap[array[i]] = 1;
         }
     }
+    console.table(hashMap)
     let repeating;
     let missing;
     for(let i = 0; i < array.length ; i++){
-        if(hashMap[array[i]] == 2){
-            repeating = array[i];
+        if(hashMap[i] == 2){
+            repeating = i;
         }
 
-        if(hashMap[array[i]]){
-            missing = array[i]
+        if(hashMap[i] == undefined){
+            missing = i
         }
     }
 
-    return repeating , missing;
+    return [repeating , missing];
 }
 
 console.log(repeatingAndMissingNumbers([3,1,2,5,3]))
