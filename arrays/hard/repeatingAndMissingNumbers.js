@@ -1,4 +1,17 @@
-//OPTIMAL APPROACH
+//OPTIMAL APPROACH - 2
+function repeatingAndMissingNumbers_2(array){
+    let n = array.length;
+    let xr = 0;
+    let xn = 0;
+    for(let i = 0 ; i < n ; i++){
+        xn = xn ^ (i + 1);
+        xr = xr ^ array[i];
+    }
+    return xr;
+}
+
+console.log(repeatingAndMissingNumbers_2([3,1,2,3,4]))
+//OPTIMAL APPROACH - 1
 function repeatingAndMissingNumbers_1(array){
     let n = array.length;
 
