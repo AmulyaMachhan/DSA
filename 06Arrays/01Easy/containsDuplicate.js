@@ -1,6 +1,15 @@
 // PROBLEM STATEMENT 
 // Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
 
+// OPTIMAL APPROACH
+// Using set data structure
+function containsDuplicate_2(array){
+    return array.length !== new Set(array).size 
+}
+
+console.log(containsDuplicate_2([1,1,1,2,3]));
+console.log(containsDuplicate_2([1,2,3]));
+
 // APPROACH 1 
 // Using hashMap data structure
 function containsDuplicate(array){
