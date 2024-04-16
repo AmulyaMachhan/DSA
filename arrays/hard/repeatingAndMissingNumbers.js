@@ -1,16 +1,50 @@
 //OPTIMAL APPROACH - 2
-function repeatingAndMissingNumbers_2(array){
-    let n = array.length;
+function repeatingAndMissingNumbers_2(a){
+    let n = a.length;
     let xr = 0;
-    let xn = 0;
     for(let i = 0 ; i < n ; i++){
-        xn = xn ^ (i + 1);
-        xr = xr ^ array[i];
+        xr = xr ^ a[i];
+        xr = xr ^ (i + 1);
     }
-    return xr;
+    const number = (xr & ~(xr - 1));
+
+  //Step 3: Group the numbers:
+  let zero = 0;
+  let one = 0;
+  for (let i = 0; i < n; i++) {
+    //part of 1 group:
+    if ((a[i] & number) != 0) {
+      one = one ^ a[i];
+    }
+    //part of 0 group:
+    else {
+      zero = zero ^ a[i];
+    }
+  }
+
+  for (let i = 1; i <= n; i++) {
+    //part of 1 group:
+    if ((i & number) != 0) {
+      one = one ^ i;
+    }
+    //part of 0 group:
+    else {
+      zero = zero ^ i;
+    }
+  }
+
+  // Last step: Identify the numbers:
+  let cnt = 0;
+  for (let i = 0; i < n; i++) {
+    if (a[i] == zero) cnt++;
+  }
+
+  if (cnt == 2) return [zero, one];
+  return [one, zero];
 }
 
 console.log(repeatingAndMissingNumbers_2([3,1,2,3,4]))
+
 //OPTIMAL APPROACH - 1
 function repeatingAndMissingNumbers_1(array){
     let n = array.length;
