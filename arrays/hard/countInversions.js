@@ -10,7 +10,7 @@ function mergeSort(array , low , high){
     }
     let mid = Math.floor((low  + high)/2);
 
-    count += mergeSort(array , 0 , mid);
+    count += mergeSort(array , low , mid);
     count += mergeSort(array , mid + 1 , high);
     count += merge(array , low , mid , high);
 

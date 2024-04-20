@@ -1,7 +1,16 @@
 //OPTIMAL APPROACH
-function reversePairs(array , low , mid){
-    
-    
+function reversePairs(array , low , mid , high){
+    let right = mid + 1 ;
+    let count = 0;
+
+    for(let i = low ; i <= mid ; i++){
+
+        while(right <= high && array[i] > 2 * array[right]){
+            right++
+        }
+        cnt += (right - (mid + 1));
+    }
+    return count
 }
 function mergeSort(array , low , high){
     let count = 0;
@@ -11,9 +20,10 @@ function mergeSort(array , low , high){
     }
     let mid = Math.floor((low  + high)/2);
 
-    count += mergeSort(array , 0 , mid);
+    count += mergeSort(array , low , mid);
     count += mergeSort(array , mid + 1 , high);
-    count += merge(array , low , mid , high);
+    count += reversePairs(array , low , mid , high)
+    merge(array , low , mid , high);
 
     return count;
 }
@@ -22,7 +32,6 @@ function merge(array , low , mid , high){
     let leftIndex = low
     let rightIndex = mid + 1;
     let result = [];
-    let count = 0;
     while(leftIndex <= mid && rightIndex <= high){
         if(array[leftIndex] <= array[rightIndex]){
             result.push(array[leftIndex]);
@@ -30,7 +39,6 @@ function merge(array , low , mid , high){
         }
         else{
             result.push(array[rightIndex]);
-            count += (mid - leftIndex + 1);
             rightIndex++;
         }
     }
@@ -47,9 +55,10 @@ function merge(array , low , mid , high){
     for(let i = low ; i <= high ; i++){
         array[i] = result[i - low]
     }
-
-    return count;
 }
+
+console.log(mergeSort([1,3,2,3,1], 0 , 4));
+console.log(mergeSort([3,2,1,4] , 0 , 3));
 
 //BRUTE FORCE METHOD
 function reversePairs(array){
