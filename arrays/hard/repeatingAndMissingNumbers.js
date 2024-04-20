@@ -6,6 +6,8 @@ function repeatingAndMissingNumbers_2(a){
         xr = xr ^ a[i];
         xr = xr ^ (i + 1);
     }
+
+    //This will give the place of the bit where the bit is different 
     const number = (xr & ~(xr - 1));
 
   //Step 3: Group the numbers:
@@ -13,10 +15,12 @@ function repeatingAndMissingNumbers_2(a){
   let one = 0;
   for (let i = 0; i < n; i++) {
     //part of 1 group:
+    //this will give the number with bit one at the differentiating bit
     if ((a[i] & number) != 0) {
       one = one ^ a[i];
     }
     //part of 0 group:
+    //this will give the number with bit zero at the differentiating bit
     else {
       zero = zero ^ a[i];
     }
