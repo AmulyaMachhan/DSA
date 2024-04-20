@@ -1,6 +1,7 @@
 //OPTIMAL APPROACH
-function countInversions_1(array){
-    return mergeSort(array , 0 , array.length - 1)
+function reversePairs(array , low , mid){
+    
+    
 }
 function mergeSort(array , low , high){
     let count = 0;
