@@ -26,6 +26,7 @@ function merge(leftArray , rightArray){
             rightIndex++;
         }
     }
+
     while(leftIndex < leftArray.length){
         result.push(leftArray[leftIndex]);
         leftIndex++;
@@ -35,6 +36,7 @@ function merge(leftArray , rightArray){
         result.push(rightArray[rightIndex]);
         rightIndex++; 
     }
+    
     return result;
 }
 console.log(mergeSort([9,5,7,6,4,0,8]))
