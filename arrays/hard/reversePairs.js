@@ -6,17 +6,17 @@ function reversePairs(array , low , mid , high){
     for(let i = low ; i <= mid ; i++){
 
         while(right <= high && array[i] > 2 * array[right]){
-            right++
+            right++;
         }
         count += (right - (mid + 1));
     }
-    return count
+    return count;
 }
 function mergeSort(array , low , high){
     let count = 0;
 
     if(low  >= high ){
-        return count
+        return count;
     }
     let mid = Math.floor((low  + high)/2);
 
@@ -29,9 +29,10 @@ function mergeSort(array , low , high){
 }
 
 function merge(array , low , mid , high){
-    let leftIndex = low
+    let leftIndex = low;
     let rightIndex = mid + 1;
     let result = [];
+    
     while(leftIndex <= mid && rightIndex <= high){
         if(array[leftIndex] <= array[rightIndex]){
             result.push(array[leftIndex]);
