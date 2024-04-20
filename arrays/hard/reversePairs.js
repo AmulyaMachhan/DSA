@@ -8,7 +8,7 @@ function reversePairs(array , low , mid , high){
         while(right <= high && array[i] > 2 * array[right]){
             right++
         }
-        cnt += (right - (mid + 1));
+        count += (right - (mid + 1));
     }
     return count
 }
@@ -61,7 +61,7 @@ console.log(mergeSort([1,3,2,3,1], 0 , 4));
 console.log(mergeSort([3,2,1,4] , 0 , 3));
 
 //BRUTE FORCE METHOD
-function reversePairs(array){
+function reversePairs_1(array){
     let count = 0 ;
     for(let i = 0 ; i < array.length ; i++){
         for(let j = i + 1 ; j < array.length ;j++){
@@ -73,5 +73,5 @@ function reversePairs(array){
     return count;
 }
 
-console.log(reversePairs([1,3,2,3,1]));
-console.log(reversePairs([3,2,1,4]));
+console.log(reversePairs_1([1,3,2,3,1]));
+console.log(reversePairs_1([3,2,1,4]));
