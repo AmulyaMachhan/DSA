@@ -5,12 +5,12 @@
 function lowerBound(array , target){
     let n = array.length;
     let low = 0 ; high = n - 1;
-    let ans = -1;
+    let ans = n;
     while(low <= high){
         let mid = Math.floor((low + high) / 2);
 
         if(array[mid] >= target) {
-            ans = array[mid];
+            ans = mid;
 
             high = mid - 1;
         }else{
@@ -30,11 +30,11 @@ function recursiveLowerBound(array , target , low , high , ans){
 
     let mid = Math.floor((low + high)/2);
     if(array[mid] >= target){
-        ans = array[mid];
+        ans = mid;
         return recursiveLowerBound(array ,target , low , mid - 1 , ans);
     }else{
         return recursiveLowerBound(array , target , mid + 1 , high , ans)
     }    
 }
 
-console.log(recursiveLowerBound([1,2,4,5,6,7,8,9] , 3 , 0 , 7 , -1));
+console.log(recursiveLowerBound([1,2,4,5,6,7,8,9] , 3 , 0 , 7 , 7));
