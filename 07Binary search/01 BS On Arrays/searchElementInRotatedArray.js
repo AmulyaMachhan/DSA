@@ -6,16 +6,23 @@ function searchElementInRotatedArray(array , target){
         
         if(array[mid] === target){
             return mid;
-        }else if(array[mid] > target){
+        }
+        
+        //to check if left half is sorted
+        if(array[low] <= array[mid]){
             if(array[low] <= target && target >= array[mid]){
+                //element exits
                 high = mid - 1;
             }else{
+                //element does not exist
                 low = mid + 1;
             }
         }else{
             if(array[mid] <= target && target >= array[high]){
+                //element exist 
                 low = mid + 1;
             }else{
+                //element does not exist
                 high = mid - 1;
             }
         }
