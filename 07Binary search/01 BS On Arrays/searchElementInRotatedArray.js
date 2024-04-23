@@ -10,7 +10,7 @@ function searchElementInRotatedArray(array , target){
         
         //to check if left half is sorted
         if(array[low] <= array[mid]){
-            if(array[low] <= target && target >= array[mid]){
+            if(array[low] <= target && target <= array[mid]){
                 //element exits
                 high = mid - 1;
             }else{
@@ -18,7 +18,7 @@ function searchElementInRotatedArray(array , target){
                 low = mid + 1;
             }
         }else{
-            if(array[mid] <= target && target >= array[high]){
+            if(array[mid] <= target && target <= array[high]){
                 //element exist 
                 low = mid + 1;
             }else{
