@@ -29,6 +29,19 @@ function sqrtofElement(n){
 console.log(sqrtofElement(36));
 console.log(sqrtofElement(28));
 
+//BRUTE FORCE APPROACH
+function sqrtofElement_2(n){
+    let ans = 0;
+    for(let i = 0 ; i <= n ; i++){
+        val = i * i;
+        if(val <= n) ans = i
+        else break;
+    }
+    return ans;
+}
+console.log(sqrtofElement_2(36));
+console.log(sqrtofElement_2(28));
+
 //Using the in-built Math.sqrt function
 let sqrt = (n) => Math.sqrt(n);
 console.log(sqrt(36));
