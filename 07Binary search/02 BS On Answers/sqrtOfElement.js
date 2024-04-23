@@ -26,5 +26,9 @@ function sqrtofElement(n){
     return high;
 }
 
-console.log(sqrtofElement(36))
-console.log(sqrtofElement(28))
+console.log(sqrtofElement(36));
+console.log(sqrtofElement(28));
+
+//Using the in-built Math.sqrt function
+let sqrt = (n) => Math.sqrt(n);
+console.log(sqrt(36));
