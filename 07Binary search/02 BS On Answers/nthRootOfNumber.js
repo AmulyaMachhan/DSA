@@ -19,4 +19,33 @@ function nthRootOfNumber(number, root) {
 }
 
 console.log(nthRootOfNumber(27, 3)); 
-console.log(nthRootOfNumber(69, 4))
+console.log(nthRootOfNumber(69, 4));
+
+//Using Linear Search
+function func(b, exp) {
+    let ans = 1;
+    let base = b;
+    while (exp > 0) {
+        if (exp % 2) {
+            exp--;
+            ans = ans * base;
+        }
+        else {
+            exp /= 2;
+            base = base * base;
+        }
+    }
+    return ans;
+}
+
+function NthRoot(n, m) {
+    // Use linear search on the answer space:
+    for (let i = 1; i <= m; i++) {
+        let val = func(i, n);
+        if (val === m) return i;
+        else if (val > m) break;
+    }
+    return -1;
+}
+
+console.log(NthRoot(27));
