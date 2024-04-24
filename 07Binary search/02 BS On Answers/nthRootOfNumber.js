@@ -22,7 +22,12 @@ console.log(nthRootOfNumber(27, 3));
 console.log(nthRootOfNumber(69, 4));
 
 //Using Linear Search
-function func(b, exp) {
+
+//Power exponential method
+function powerExponentialMethod(b, exp) {
+    //b = base number like 2
+    //exp = exponent number like 5
+    //ans = 2^5 =
     let ans = 1;
     let base = b;
     while (exp > 0) {
@@ -38,14 +43,16 @@ function func(b, exp) {
     return ans;
 }
 
-function NthRoot(n, m) {
+function NthRoot(root, number) {
     // Use linear search on the answer space:
-    for (let i = 1; i <= m; i++) {
-        let val = func(i, n);
-        if (val === m) return i;
-        else if (val > m) break;
+    for (let i = 1; i <= number; i++) {
+        //val = Math.pow(i , root)
+        let val = powerExponentialMethod(i, root);
+        if (val === number) return i;
+        else if (val > number) break;
     }
     return -1;
 }
 
-console.log(NthRoot(27));
+console.log(NthRoot(3 , 27));
+console.log(NthRoot(4, 69));
