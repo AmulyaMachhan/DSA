@@ -46,12 +46,17 @@ function noOfBouquestsThatCanBeMade(array , mid , noOfRosesInOneBouquet , n){
 
 console.log(minimumDaysToMakeMBouquests_1([7, 7, 7, 7, 13, 11, 12, 7] , 2 , 3));
 
+//Time Complexity: O(log(max(arr[])-min(arr[])+1) * N).
+//Reason: We are applying binary search on our answers that are in the range of [min(arr[]), max(arr[])]. 
+//For every possible answer ‘mid’, we will call the possible() function. 
+//Inside the possible() function, we are traversing the entire array, which results in O(N).
+
 //BRUTE FORCE APPROACH
 function minimumDaysToMakeMBouquests(array , bouquetsRequired , noOfRosesInOneBouquet){
     let n = array.length;
-
+    
     if(n < bouquetsRequired * noOfRosesInOneBouquet) return -1;
-
+    
     let min = Math.min.apply(null , array);
     let max = Math.max.apply(null , array);
 
@@ -74,13 +79,19 @@ function possible(array, day, bouquetsRequired , noOfRosesInOneBouquet){
             cnt = 0;
         }
     }
-
+    
     noOfBouquestsThatCanBeMade += Math.floor(cnt / noOfRosesInOneBouquet);
-
+    
     return noOfBouquestsThatCanBeMade >= bouquetsRequired;
 }
 
 console.log(minimumDaysToMakeMBouquests([7, 7, 7, 7, 13, 11, 12, 7] , 2 , 3));
+
+//Time Complexity: 
+//O((max(arr[])-min(arr[])+1) * N)
+//Reason: We are running a loop to check our answers that are in the range of [min(arr[]), max(arr[])]. 
+//For every possible answer, we will call the possible() function. 
+//Inside the possible() function, we are traversing the entire array, which results in O(N).
 
 //Let's grasp the question better with the help of an example. 
 //Consider an array: {7, 7, 7, 7, 13, 11, 12, 7}. We aim to create bouquets with k, which is 3 adjacent flowers, and we need to make m, which is 2 such bouquets. 
