@@ -35,6 +35,10 @@ function hoursToEatBananas(bananas , array){
 console.log(KokoEatingBananas_1([7, 15, 6, 3] , 8 ));
 console.log(KokoEatingBananas_1([25, 12, 8, 14, 19] , 5 ));
 
+//Time Complexity: O(N * log(max(a[]))).
+//Reason: We are applying Binary search for the range [1, max(a[])].
+//For every value of ‘mid’, we are traversing the entire array inside the function named hoursToEatBananas().
+
 //BRUTE FORCE APPROACH
 
 //Function which gives the total hours it takes to eat bananas from the array
