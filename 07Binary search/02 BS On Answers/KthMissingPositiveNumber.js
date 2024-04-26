@@ -1,3 +1,7 @@
+//Problem Statement: 
+//You are given a strictly increasing array ‘vec’ and a positive integer 'k'. 
+//Find the 'kth' positive integer missing from 'vec'.
+
 //OPTIMAL APPROACH
 function KthMissingPositiveNumber_2(vector , k){
     let low = 0 ; high = vector.length - 1;
