@@ -1,3 +1,26 @@
+//OPTIMAL APPROACH
+function aggressiveCows_1(stalls , noOfCows){
+    stalls.sort((a,b) => a - b);
+    let n = stalls.length;
+    let low = 0 , high = stalls[n -1] - stalls[0];
+
+    while(low <= high){
+        let mid = low + Math.floor((high - low)/2);
+
+        if(placingCowsAccordingToDistance(stalls , mid , noOfCows)){
+            low = mid + 1;
+        }else{
+            high = mid - 1
+        }
+    }
+
+    return high;
+}
+
+console.log(aggressiveCows_1([0, 3, 4, 7, 10, 9] , 4));
+console.log(aggressiveCows_1([4, 2, 1, 3, 6] , 2));
+
+//BRUTE FORCE APPROACH
 function aggressiveCows(stalls , noOfCows){
     stalls.sort((a,b) => a -b);
     let n = stalls.length;
@@ -30,7 +53,7 @@ function placingCowsAccordingToDistance(stalls , dist , noOfCows){
             lastCowPlace = stalls[i];
         }
         if(countOfCows >= noOfCows){
-            return true;
+            return true
         }
     }
     //Checking if the number of cows placed in the stalls is greater than the given number of cows to be placed
