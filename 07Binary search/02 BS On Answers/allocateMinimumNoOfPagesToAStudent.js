@@ -1,3 +1,14 @@
+//Problem Statement
+//Given an array ‘arr of integer numbers, ‘ar[i]’ represents the number of pages in the ‘i-th’ book. 
+//There are a ‘m’ number of students, and the task is to allocate all the books to the students.
+//Allocate books in such a way that:
+
+//1 - Each student gets at least one book.
+//2 - Each book should be allocated to only one student.
+//3 - Book allocation should be in a contiguous manner.
+//You have to allocate the book to ‘m’ students such that the maximum number of pages assigned to a student is minimum. 
+//If the allocation of books is not possible. return -1
+
 //OPTIMAL SOLUTION
 function allocateMinimumNoOfPagesToAStudent_1(books , noOfStudents){
     if(books.length < noOfStudents) return -1;
@@ -18,10 +29,8 @@ function allocateMinimumNoOfPagesToAStudent_1(books , noOfStudents){
     return minPages;
 }
 
-console.log(allocateMinimumNoOfPagesToAStudent_1([12, 34, 67, 90] , 2));
-console.log(allocateMinimumNoOfPagesToAStudent_1([25, 46, 28, 49, 24] , 4));
-
 function studentsThatCanBeAlloted(books , pages){
+
     let students= 1 ;
     let pagesAllotedToStudent = 0;
 
@@ -37,6 +46,16 @@ function studentsThatCanBeAlloted(books , pages){
     }
     return students;
 }
+
+console.log(allocateMinimumNoOfPagesToAStudent_1([12, 34, 67, 90] , 2));
+console.log(allocateMinimumNoOfPagesToAStudent_1([25, 46, 28, 49, 24] , 4));
+
+//Time Complexity: O(N * log(sum(arr[])-max(arr[])+1)), where N = size of the array, sum(arr[]) = sum of all array elements, max(arr[]) = maximum of all array elements.
+//Reason: We are applying binary search on [max(arr[]), sum(arr[])]. 
+//Inside the loop, we are calling the countStudents() function for the value of ‘mid’. 
+//Now, inside the countStudents() function, we are using a loop that runs for N times.
+
+
 //BRUTE FORCE METHOD
 function allocateMinimumNoOfPagesToAStudent(books , noOfStudents){
     
@@ -57,7 +76,10 @@ function allocateMinimumNoOfPagesToAStudent(books , noOfStudents){
     return -1;
 }
 
-
-
 console.log(allocateMinimumNoOfPagesToAStudent([12, 34, 67, 90] , 2));
 console.log(allocateMinimumNoOfPagesToAStudent([25, 46, 28, 49, 24] , 4));
+
+///Time Complexity: O(N * (sum(arr[])-max(arr[])+1)), where N = size of the array, sum(arr[]) = sum of all array elements, max(arr[]) = maximum of all array elements.
+//Reason: We are using a loop from max(arr[]) to sum(arr[]) to check all possible numbers of pages. 
+//Inside the loop, we are calling the countStudents() function for each number. 
+//Now, inside the countStudents() function, we are using a loop that runs for N times.
