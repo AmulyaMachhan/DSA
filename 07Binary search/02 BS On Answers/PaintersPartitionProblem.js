@@ -25,6 +25,10 @@ function paintersPartitionProblem_1(boards , noOfPainters){
 console.log(paintersPartitionProblem_1([5, 5, 5, 5] , 2));
 console.log(paintersPartitionProblem_1([10, 20, 30, 40] , 2));
 
+//Time Complexity: O(N * log(sum(arr[])-max(arr[])+1)), where N = size of the array, sum(arr[]) = sum of all array elements, max(arr[]) = maximum of all array elements.
+//Reason: We are applying binary search on [max(arr[]), sum(arr[])]. 
+//Inside the loop, we are calling the noOfPaintersRequiredForGivenTime() function for the value of ‘mid’. 
+//Now, inside the noOfPaintersRequiredForGivenTime() function, we are using a loop that runs for N times.
 
 //BRUTE FORCE APPROACH
 function paintersPartitionProblem(boards , noOfPainters){
