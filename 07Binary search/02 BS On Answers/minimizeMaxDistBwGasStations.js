@@ -32,3 +32,7 @@ function minimizeMaximumDistanceBetweenGasStations(array , k){
 
 console.log(minimizeMaximumDistanceBetweenGasStations([1,2,3,4,5] , 4));
 console.log(minimizeMaximumDistanceBetweenGasStations([1,7] , 2));
+
+//Time Complexity: O(k*n) + O(n), n = size of the given array, k = no. of gas stations to be placed.
+//Reason: O(k*n) to insert k gas stations between the existing stations with maximum distance. 
+//Another O(n) for finding the answer i.e. the maximum distance.
