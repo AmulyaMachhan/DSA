@@ -4,6 +4,27 @@
 //Consider that each unit of a board takes 1 unit of time to paint. 
 //You are supposed to return the area of the minimum time to get this job done of painting all the ‘N’ boards under the constraint that any painter will only paint the continuous sections of boards.
 
+//OPTIMAL APPROACH
+function paintersPartitionProblem_1(boards , noOfPainters){
+    let n = boards.length;
+    let low = Math.max(...boards);
+    let high =  boards.reduce((acc ,elem) => acc + elem , 0);
+
+    while(low <= high){
+        let mid = low + Math.floor((high - low)/2);
+
+        if(noOfPaintersRequiredForGivenTime(boards , n , mid) > noOfPainters){
+            low = mid + 1;
+        }else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+
+console.log(paintersPartitionProblem_1([5, 5, 5, 5] , 2));
+console.log(paintersPartitionProblem_1([10, 20, 30, 40] , 2));
+
 
 //BRUTE FORCE APPROACH
 function paintersPartitionProblem(boards , noOfPainters){
@@ -20,6 +41,7 @@ function paintersPartitionProblem(boards , noOfPainters){
 
     return minTime;
 }
+
 
 function noOfPaintersRequiredForGivenTime(boards , n , time){
     let calcultedTime = 0;
