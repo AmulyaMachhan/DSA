@@ -29,6 +29,11 @@ function splitArrayLargestSum_1(array , noOfSubarrays){
 console.log(splitArrayLargestSum_1([1,2,3,4,5] , 3));
 console.log(splitArrayLargestSum_1([1,3,5] , 3));
 
+//Time Complexity: O(N * log(sum(arr[])-max(arr[])+1)), where N = size of the array, sum(arr[]) = sum of all array elements, max(arr[]) = maximum of all array elements.
+//Reason: We are applying binary search on [max(arr[]), sum(arr[])]. 
+//Inside the loop, we are calling the noOfSubarraysForGivenSum() function for the value of ‘mid’. 
+//Now, inside the noOfSubarraysForGivenSum() function, we are using a loop that runs for N times.
+
 //BRUTE FORCE APPROACH
 function splitArrayLargestSum(array , noOfSubarrays){
     let n = array.length;
