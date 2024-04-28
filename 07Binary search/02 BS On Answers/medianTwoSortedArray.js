@@ -8,6 +8,8 @@ function medianTwoSortedArray_2(array1 , array2){
     let n1 = array1.length ;
     let n2 = array2.length ;
 
+    //If n1 is bigger swap the arrays
+    //Smaller array would give less time complexity as the range of answers will be reduced because it depends on an arrays length
     if(n1 > n2) return medianTwoSortedArray_2(array2 , array1);
 
     let low = 0;
@@ -19,19 +21,30 @@ function medianTwoSortedArray_2(array1 , array2){
         let mid1 = Math.floor((low + high) / 2);
         let mid2 = left - mid1;
 
+        //l1 = left half min element of array1 
+        //l2 = left half min element of array2 
         let l1 = Number.MIN_SAFE_INTEGER, l2 = Number.MIN_SAFE_INTEGER;
+        
+        //r1 = right half max element of array1
+        //r2 = right half max element of array12
         let r1 = Number.MAX_SAFE_INTEGER, r2 = Number.MAX_SAFE_INTEGER;
 
+        //Check if mid exists in the range 
         if(mid1 < n1) r1 = array1[mid1];
         if(mid2 < n2) r2 = array2[mid2];
         if(mid1 - 1 >= 0) l1 = array1[mid1 -1];
         if(mid2 - 1 >= 0) l2 = array2[mid2 -1];
 
+        //check if diagnols of left halves are smaller from right halves 
         if(l1 <= r2 && l2 <= r1){
+            //For odd length
             if(n % 2 === 1) return Math.max(l1 ,l2);
+            
+            //For even length
             else return (Math.max(l1 , l2) + Math.min(r1 , r2))/2;
         }
 
+        //if left half element of array1 is greater than right half element of array2 then that means answer lies in the smaller values 
         else if(l1 > r2) high = mid1 - 1;
         else low = mid1 + 1;
     }
