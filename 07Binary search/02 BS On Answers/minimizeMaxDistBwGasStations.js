@@ -48,6 +48,14 @@ console.log(minimizeMaximumDistanceBetweenGasStations_1([1,2,3,4,5] , 4));
 console.log(minimizeMaximumDistanceBetweenGasStations_1([1,7] , 2));
 console.log(minimizeMaximumDistanceBetweenGasStations_1([1 , 13 ,17, 23] , 5));
 
+//Time Complexity: O(nlogn + klogn),  n = size of the given array, k = no. of gas stations to be placed.
+//Reason: Insert operation of priority queue takes logn time complexity. 
+//O(nlogn) for inserting all the indices with distance values and O(klogn) for placing the gas stations.
+
+//Space Complexity: O(n-1)+O(n-1)
+//Reason: The first O(n-1) is for the array to keep track of placed gas stations.
+//The second one is for the priority queue.
+
 //BRUTE FORCE METHOD
 function minimizeMaximumDistanceBetweenGasStations(array , k){
     let n = array.length;
