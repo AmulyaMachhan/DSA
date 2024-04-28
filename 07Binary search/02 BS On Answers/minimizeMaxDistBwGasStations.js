@@ -1,4 +1,7 @@
 //BETTER APPROACH
+//Priority Queue: Priority queue internally uses the heap data structure. 
+//In the max heap implementation, the first element is always the greatest of the elements it contains
+//The rest elements are in decreasing orde
 class MaxPriorityQueue{
     constructor(){
         this.queue = [];
@@ -20,27 +23,39 @@ class MaxPriorityQueue{
 
 function minimizeMaximumDistanceBetweenGasStations_1(array , k){
     let n = array.length;
+
+    //Creating a new array which contains how many gas stations can be inserted between two array elements
+    //There are n elements so gas stations can only be inserted at n - 1 positions
     let howMany = new Array(n-1).fill(0);
 
+    //Creating a priority queue which contains the max section length and the index at which it is inserted
     let priorityQueue = new MaxPriorityQueue();
 
+    //Inserting the difference between the adjacent arrays and the index 
+    //The priority queue now contains pairs in the form (distance between consecutive index , index)
     for(let i = 0 ; i < n - 1 ; i++){
         priorityQueue.enqueue({priority : array[i+1] - array[i] , index : i});
     }
 
     for(let gasStations = 1; gasStations<= k ;gasStations++){
         
+        //Finding the max section distance in the priority queue
         const topElement = priorityQueue.dequeue();
+        //Getting the index of the element of the max distance
         const sectionIndex = topElement.index;
 
+        //Inserting the gas station at the specified index
         howMany[sectionIndex]++;
 
         let diff = array[sectionIndex + 1] - array[sectionIndex];
+        //Finding the new section length for the inserted gas station
         let sectionLength = diff/ (howMany[sectionIndex] + 1) ;
 
+        //Insert the new section consisting of the inserted gas station along with index
         priorityQueue.enqueue({priority : sectionLength , index : sectionIndex});
     }
 
+    //Returning the top element in the priority queue which contains the maximum distance
     return priorityQueue.front().priority;
 }
 
