@@ -1,3 +1,11 @@
+//Problem Statement: 
+//You are given a sorted array ‘arr’ of length ‘n’, which contains positive integer positions of ‘n’ gas stations on the X-axis. 
+//You are also given an integer ‘k’. You have to place 'k' new gas stations on the X-axis. 
+//You can place them anywhere on the non-negative side of the X-axis, even on non-integer positions. 
+//Let 'dist' be the maximum value of the distance between adjacent gas stations after adding k new gas stations.
+//Find the minimum value of ‘dist’.
+
+//Note: Answers within 10^-6 of the actual answer will be accepted. For example, if the actual answer is 0.65421678124, it is okay to return 0.654216. Our answer will be accepted if that is the same as the actual answer up to the 6th decimal place.
 //OPTIMAL APPROACH
 function minimizeMaximumDistanceBetweenGasStations_2(array , k){
     let n = array.length;
@@ -38,6 +46,13 @@ function noOfGasStationsRequired(array , n , distance){
 console.log(minimizeMaximumDistanceBetweenGasStations_2([1,2,3,4,5] , 4));
 console.log(minimizeMaximumDistanceBetweenGasStations_2([1,7] , 2));
 console.log(minimizeMaximumDistanceBetweenGasStations_2([1 , 13 ,17, 23] , 5));
+
+//Time Complexity: O(n*log(Len)) + O(n), n = size of the given array, Len = length of the answer space.
+//Reason: We are applying binary search on the answer space. 
+//For every possible answer, we are calling the function numberOfGasStationsRequired() that takes O(n) time complexity. 
+//And another O(n) for finding the maximum distance initially.
+
+
 
 //BETTER APPROACH
 //Priority Queue: Priority queue internally uses the heap data structure. 
