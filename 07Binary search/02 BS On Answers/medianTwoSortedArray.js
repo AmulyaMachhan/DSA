@@ -42,6 +42,11 @@ function medianTwoSortedArray_2(array1 , array2){
 console.log(medianTwoSortedArray_2([1, 3, 5] , [2, 4, 6]));
 console.log(medianTwoSortedArray_2([1, 4, 7, 10, 12] , [2, 3, 6, 15]));
 
+//Time Complexity: O(log(min(n1,n2))), where n1 and n2 are the sizes of two given arrays.
+//Reason: We are applying binary search on the range [0, min(n1, n2)].
+
+//Space Complexity: O(1) as no extra space is used.
+
 //BETTER APPROACH
 function medianTwoSortedArray_1(array1 , array2){
     let n1 =array1.length ;
