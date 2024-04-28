@@ -1,3 +1,44 @@
+//OPTIMAL APPROACH
+function minimizeMaximumDistanceBetweenGasStations_2(array , k){
+    let n = array.length;
+    let low = 0;
+    let high = 0;
+
+    for(let i = 0 ; i < n - 1 ; i++){
+        high = Math.max(high , array[i+1] - array[i]);
+    }
+
+    const diff = 10^(-6);
+    while(high - low > diff){
+        let mid = (low + high)/ 2.0;
+        let count = noOfGasStationsRequired(array , n , mid);
+        if(count > k){
+            low = mid;
+        }else{
+            high = mid;
+        }
+    }
+
+    return high;
+}
+
+function noOfGasStationsRequired(array , n , distance){
+    let cnt = 0 ; 
+    for(let i = 1 ; i < n ; i++){
+        let numberInBetween = Math.floor((array[i] - array[i-1]) / distance);
+        if((array[i] - array[i - 1]) === distance * numberInBetween){
+            cnt += numberInBetween - 1;
+        }else{
+            cnt += numberInBetween;
+        }
+    }
+    return cnt
+}
+
+console.log(minimizeMaximumDistanceBetweenGasStations_2([1,2,3,4,5] , 4));
+console.log(minimizeMaximumDistanceBetweenGasStations_2([1,7] , 2));
+console.log(minimizeMaximumDistanceBetweenGasStations_2([1 , 13 ,17, 23] , 5));
+
 //BETTER APPROACH
 //Priority Queue: Priority queue internally uses the heap data structure. 
 //In the max heap implementation, the first element is always the greatest of the elements it contains
