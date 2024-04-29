@@ -1,3 +1,44 @@
+//OPTIMAL APPROACH
+function medianOfRowWiseSortedArray_2(matrix){
+    let r = matrix.length;
+    let c = matrix[0].length;
+    
+    let low = 1, high = 10^9;
+    while(low <= high){
+        let mid = low + Math.floor((high - low)/2);
+        let count = 0
+        for(let i = 0 ; i < r ; i++){
+            count += countOfElementsSmallerThanMid(matrix[i] , c , mid);
+        }
+
+        if(count <= ((r * c)/2)){
+            low = mid + 1;
+        }else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+
+function countOfElementsSmallerThanMid( array , size , element){
+    let low= 0 ; high = size -1;
+    while(low <= high){
+        let mid = Math.floor((low + high)/ 2);
+        if(array[mid] <= element){
+            low = mid + 1; 
+        }else{
+            high = mid - 1;
+        }
+    }
+    return low;
+}
+
+console.log(medianOfRowWiseSortedArray_2([
+    [2, 3, 4],
+    [1, 3, 8],
+    [1, 2, 5]
+]));
+
 //BRUTE FORCE APPROACH
 function medianOfRowWiseSortedArray_1(matrix){
     let r = matrix.length;
