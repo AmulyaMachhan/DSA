@@ -31,7 +31,7 @@ function reverseWords_1(string) {
     return reversed;
 }
 
-console.log(reverseWords_1(["Vishrut loves Gym"]));
+console.log(reverseWords_1("Vishrut loves Gym"));
 
 //Time complexity: 𝑂(𝑛)
 // O(n), where n is the length of the input string. This is because the algorithm iterates through each character of the string once to construct the reversed string.
@@ -39,6 +39,7 @@ console.log(reverseWords_1(["Vishrut loves Gym"]));
 //The space complexity is also linear with respect to the input string length n because the algorithm constructs a new string to hold the reversed words
 
 //BETTER APRROACH
+//Using in built functions
 function reverseWords(s) {
     // Split the string into an array of words
     const words = s.trim().split(/\s+/);
@@ -49,6 +50,7 @@ function reverseWords(s) {
     // Join the words back into a string
     return words.join(' ');
 }
+
 //BRUTE FORCE APPROACH
 function reverseWords(string){
     let str = "";
