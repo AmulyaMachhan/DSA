@@ -1,3 +1,6 @@
+//Problem Statement: 
+//Given two sorted arrays of size m and n respectively, you are tasked with finding the element that would be at the kth position of the final sorted array.
+
 //OPTIMAL APPROACH
 function KthElementOfTwoSortedArrays_2( array1 , array2 , k){
     let n1 = array1.length;
@@ -29,6 +32,12 @@ function KthElementOfTwoSortedArrays_2( array1 , array2 , k){
 
 console.log(KthElementOfTwoSortedArrays_2([2,3,6,7,9] , [1,4,8,10] , 5));
 console.log(KthElementOfTwoSortedArrays_2([0] , [1,4,8,10] , 2));
+
+//Time Complexity : log(min(m,n))
+//Reason: We are applying binary search in the array with minimum size among the two. And we know the time complexity of the binary search is log(N) where N is the size of the array. Thus, the time complexity of this approach is log(min(m,n)), where m,n are the sizes of two arrays.
+
+//Space Complexity: O(1)
+//Reason: Since no extra data structure is used, making space complexity to O(1).
 
 //BETTER APPROACH
 function KthElementOfTwoSortedArrays_1(array1 , array2 , k){
