@@ -1,3 +1,8 @@
+// Problem Statement: 
+// Given a row-wise sorted matrix of size r*c, where r is no. of rows and c is no. of columns, find the median in the given matrix.
+
+// Assume - r*c is odd
+
 //OPTIMAL APPROACH
 function medianOfRowWiseSortedArray_2(matrix){
     let r = matrix.length;
@@ -38,6 +43,10 @@ console.log(medianOfRowWiseSortedArray_2([
     [1, 3, 8],
     [1, 2, 5]
 ]));
+
+// Time Complexity: O(row*log col) since the upper bound function takes log c time.
+
+// Space Complexity: O(1) since no extra space is required
 
 //BRUTE FORCE APPROACH
 function medianOfRowWiseSortedArray_1(matrix){
