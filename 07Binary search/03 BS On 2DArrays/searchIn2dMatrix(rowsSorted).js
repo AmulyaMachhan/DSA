@@ -1,3 +1,25 @@
+//OPTIMAL APPROACH
+function searchIn2dMatrix(matrix , k){
+    let n = matrix.length;
+    let m= matrix[0].length;
+
+    let row = 0 ; col = m - 1;
+    while(row < n && col >= 0){
+        if(matrix[row][col] == k) return true;
+        else if(matrix[row][col] > k) col--;
+        else row++;
+    }
+    return false;
+}
+
+console.log(searchIn2dMatrix([
+    [1, 4, 7, 11, 15],
+    [2, 5, 8, 12, 19],
+    [3, 6, 9, 16, 22],
+    [10, 13, 14, 17, 24],
+    [18, 21, 23, 26, 30]
+] , 6));
+
 //BETTER APPROACH
 function searchIn2dMatrix_1(matrix , k){
     let n = matrix.length;
