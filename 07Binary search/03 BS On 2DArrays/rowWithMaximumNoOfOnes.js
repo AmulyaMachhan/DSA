@@ -38,6 +38,11 @@ console.log(rowWithMaximumNoOfOnes_1([
     [0,0,0]
 ]))
 
+//Time Complexity: O(r X logc), where r = given row number, c = given column number.
+//Reason: We are using a loop running for n times to traverse the rows. Then we are applying binary search on each row with m columns.
+
+//Space Complexity: O(1) as we are not using any extra space.
+
 //BRUTE FORCE APPROACH
 function rowWithMaximumNoOfOnes(matrix){
     let r = matrix.length;
