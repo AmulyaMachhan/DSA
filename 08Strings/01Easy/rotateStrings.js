@@ -4,19 +4,28 @@
 // A shift on s consists of moving the leftmost character of s to the rightmost position.
 
 // For example, if s = "abcde", then it will be "bcdea" after one shift.
+// OPTIMAL APPROACH
+function rotatedStrings_2(s1, s2){
+    if(s1.length !== s2.length) return true;
+    s1 = s1 + s1;
+    return s1.includes(s2);
+}
+
+console.log(rotatedStrings_2("abcde" , "bcdea"));
 
 // BETTER APPRAOCH
-function rotatedStrings(s1 , s2){
+function rotatedStrings_1(s1 , s2){
+    if(s1.length !== s2.length) return false;
+
     let shiftedString = ""
     for(let i = 0 ; i < s1.length ; i++){
         shiftedString = s1.substring(i) + s1.substring(0 , i);
-
         if(shiftedString == s2) return true;
     }
     return false;
 }
 
-console.log(rotateStrings("abcde" , "bcdea"));
+console.log(rotatedStrings_1("abcde" , "bcdea"));
 
 // BRUTE FORCE APPROACH
 function rotateStrings(s1 , s2){
