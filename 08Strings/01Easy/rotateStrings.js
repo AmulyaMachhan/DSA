@@ -5,6 +5,19 @@
 
 // For example, if s = "abcde", then it will be "bcdea" after one shift.
 
+// BETTER APPRAOCH
+function rotatedStrings(s1 , s2){
+    let shiftedString = ""
+    for(let i = 0 ; i < s1.length ; i++){
+        shiftedString = s1.substring(i) + s1.substring(0 , i);
+
+        if(shiftedString == s2) return true;
+    }
+    return false;
+}
+
+console.log(rotateStrings("abcde" , "bcdea"));
+
 // BRUTE FORCE APPROACH
 function rotateStrings(s1 , s2){
     
