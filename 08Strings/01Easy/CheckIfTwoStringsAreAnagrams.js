@@ -1,3 +1,6 @@
+// Problem Statement: 
+//Given two strings, check if two strings are anagrams of each other or not.
+
 //OPTIMAL APPROACH
 function checkIfTwoStringsAreAnagrams_1(str1 , str2){
     let freq = {};
