@@ -23,19 +23,19 @@ console.log(removeOutermostParanthesis("(()())(())(()(()))"));
 function removeOutermostParanthesis_1(string){
     let openCount = 0;
     let res = "";
-
+    let start = 0;
     for(let i = 0 ; i < string.length ; i++){
-        if(string[i] === "("){
-            if(openCount > 0){
-                res += string[i];
-            }else{
-                openCount++;
-            }
+        if(string[i] == "("){
+            openCount++;
         }else{
             openCount--;
-            if(openCount > 0){
-                res += string[i];
+        }
+
+        if(openCount === 0){
+            if(start < i){
+                res += string.substring(start + 1 , i);
             }
+            start = i + 1;
         }
     }
 
