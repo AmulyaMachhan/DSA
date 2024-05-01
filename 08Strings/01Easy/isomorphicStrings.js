@@ -37,3 +37,34 @@ function isIsomorphic(str1, str2) {
 console.log(isIsomorphic("egg", "add")); // Output: true
 console.log(isIsomorphic("foo", "bar")); // Output: false
 console.log(isIsomorphic("paper", "title")); // Output: true
+
+function areIsomorphic(str1, str2)
+{
+    // initializing an object
+    // to store letters from str1 and str2
+    // as key value pairs
+    var charCount = {};
+    
+    // initially setting c to "a"
+    var c = "a";
+    
+    // iterating over str1 and str2
+    for (var i = 0; i < str1.length; i++){
+        // if str1[i] is a key in charCount
+        if (charCount.hasOwnProperty(str1[i])){
+            c = charCount[str1[i]];
+            if (c != str2[i]) return false;
+        }
+        // if str2[i] is not a value in charCount
+        else if (!Object.values(charCount).includes(str2[i])){
+            charCount[str1[i]] = str2[i];
+        }
+        
+        else return false;
+    }
+    return true;
+}
+           
+console.log(areIsomorphic("egg", "add")); // Output: true
+console.log(areIsomorphic("foo", "bar")); // Output: false
+console.log(areIsomorphic("paper", "title")); // Output: true
