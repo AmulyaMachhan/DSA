@@ -10,7 +10,7 @@
 // Return the integer as the final result.
 
 //OPTIMAL APPROACH
-const myAtoi = str => {
+function stringToInteger_2(str){
     str = str.trim();
     if (!str) {
         return 0;
@@ -55,6 +55,45 @@ const myAtoi = str => {
     }
     return result;
 };
+
+console.log(stringToInteger_2("-45"));
+console.log(stringToInteger_2("-0045"));
+console.log(stringToInteger_2("1337c0d3"));
+
+//SOULTION - 2
+function stringToInteger_1 (s) {
+    let i = 0;
+    let sign = 1;
+    let result = 0;
+
+    // Skip leading whitespaces
+    while (s[i] === ' ') {
+        i++;
+    }
+
+    // Determine sign
+    if (s[i] === '+' || s[i] === '-') {
+        sign = s[i] === '-' ? -1 : 1;
+        i++;
+    }
+
+    // Read integer value
+    while (i < s.length && s[i] >= '0' && s[i] <= '9') {
+        result = result * 10 + (s[i] - '0');
+        i++;
+    }
+
+    // Apply sign and handle out-of-range values
+    result *= sign;
+    result = Math.max(Math.min(result, Math.pow(2, 31) - 1), -Math.pow(2, 31));
+
+    return result;
+};
+
+console.log(stringToInteger_1("-45"));
+console.log(stringToInteger_1("-0045"));
+console.log(stringToInteger_1("1337c0d3"));
+
 //SOLUTION - 1
 function stringToInteger(string){
     string.trim();
