@@ -128,3 +128,15 @@ function sortStringByFrequencyOfCharacters(string){
 }
 
 console.log(sortStringByFrequencyOfCharacters("tree"));
+
+// Time Complexity:
+// Counting the frequency of each character in the object takes O(n) time, where n is the length of the input string s.
+// Sorting the keys of the object using Object.keys(object).sort((a, b) => object[b] - object[a]) takes O(k log k) time, where k is the number of unique characters in the string. 
+// This is because the sorting operation has a time complexity of O(k log k), and Object.keys() takes O(k) time.
+// Building the result string by iterating over the sorted keys and repeating each character according to its frequency takes O(n) time.
+// Therefore, the overall time complexity of the frequencySort function is O(n + k log k).
+
+// Space Complexity:
+// The object takes O(k) space, where k is the number of unique characters in the string.
+// The result string takes O(n) space, where n is the length of the input string.
+// The sorted array created from Object.keys(object) takes O(k) space.
