@@ -60,6 +60,12 @@ console.log(stringToInteger_2("-45"));
 console.log(stringToInteger_2("-0045"));
 console.log(stringToInteger_2("1337c0d3"));
 
+// Time Complexity:
+// The time complexity of the function is O(n), where n is the length of the input string str. This is because the function iterates through each character of the string once in the for loop, and each character operation inside the loop takes constant time.
+
+// Space Complexity:
+// The space complexity of the function is O(1), which means it requires constant space. This is because the space used by the function does not depend on the size of the input string str, but rather on the number of variables and operations performed within the function, which remains constant regardless of the input size.
+
 //SOULTION - 2
 function stringToInteger_1 (s) {
     let i = 0;
@@ -93,6 +99,12 @@ function stringToInteger_1 (s) {
 console.log(stringToInteger_1("-45"));
 console.log(stringToInteger_1("-0045"));
 console.log(stringToInteger_1("1337c0d3"));
+
+// Time Complexity:
+// The time complexity of the function is O(n), where n is the length of the input string s. This is because the function iterates through each character of the string once.
+
+// Space Complexity:
+// The space complexity of the function is O(1), which means it requires constant space. This is because the space used by the function does not depend on the size of the input string s, but rather on the number of variables and operations performed within the function, which remains constant regardless of the input size.
 
 //SOLUTION - 1
 function stringToInteger(string){
