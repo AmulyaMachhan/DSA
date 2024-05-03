@@ -50,6 +50,10 @@ console.log(peakElement2DMatrix_2([
     [21,30,14],
     [7,16,32],
 ]));
+
+//TIME COMPLEXITY : O(N * LOG (M))
+//SPACE COMPLEXITY : O(1);
+
 //BETTER APPROACH
 //To find the largest element in the 2D Array
 function peakElement2DMatrix_1(matrix){
