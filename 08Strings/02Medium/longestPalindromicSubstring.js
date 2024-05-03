@@ -1,6 +1,45 @@
 //PROBLEM STATEMENT
 //Given a string s, return the longest palindromicsubstring  in s.
 
+//TWO POINTER APPROACH
+//OPTIMAL APPROACH
+function longestPalindromicSubstring_1(string){
+    let n = string.length;
+    let start = 0;
+    let end = 1;
+
+    for(let i = 0 ; i < n ; i++){
+        expandAroundCenter(i - 1 , i);
+        expandAroundCenter(i - 1 , i + 1);
+    }
+    
+    function expandAroundCenter(left , right){
+        while(left >= 0 && right < n && string[left] === string[right]){
+    
+            if(right - left+ 1 > end){
+                start = left;
+                end = right - left+ 1;
+            }
+            left--;
+            right++;
+        }
+    }
+
+    return string.substring(start , start + end);
+}
+
+
+console.log(longestPalindromicSubstring_1("babad"));
+console.log(longestPalindromicSubstring_1("cbbd"));
+
+// Time complexity: O(n^2)
+// The nested loops iterate over the string s of length n.
+// Within each iteration, the expandAroundCenter function can potentially expand up to 
+// O(n) times for both even and odd-length palindromes, resulting in a total worst-case time complexity of O(n^2).
+
+// Space complexity: O(1)
+// The algorithm uses only a constant amount of extra space, regardless of the input size. 
+
 //BRUTE FORCE APPROACH
 function longestPalindromicSubstring(string){
     let maxLength = 0;
