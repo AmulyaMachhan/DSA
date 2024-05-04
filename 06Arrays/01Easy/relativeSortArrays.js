@@ -35,7 +35,7 @@ console.log(relativeSortArrays_3([28,6,22,8,44,17], [22,28,8,6]));
 //OPTIMAL SOLUTION-2
 //Using counting sort
 function relativeSortArrays_2(arr1 , arr2){
-    let max = Math.max(...arr2);
+    let max = Math.max(...arr1);
 
     const countArray = new Array(max + 1).fill(0);
 
@@ -45,16 +45,16 @@ function relativeSortArrays_2(arr1 , arr2){
 
     const result = [];
     for(let i = 0; i < arr2.length; i++){
-        while(countArray[arr2[i]] === 0){
+        while(countArray[arr2[i]] > 0){
             result.push(arr2[i]);
             countArray[arr2[i]]--;
         }
     }
 
     for(let i = 0; i <= max; i++){
-        while(countArray[arr1[i]] > 0){
-            result.push(arr1[i]);
-            countArray[arr1[i]]--;
+        while(countArray[i] > 0){
+            result.push(i);
+            countArray[i]--;
         }
     }
 
