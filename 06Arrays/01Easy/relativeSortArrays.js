@@ -4,6 +4,39 @@
 //Sort the elements of arr1 such that the relative ordering of items in arr1 are the same as in arr2. 
 //Elements that do not appear in arr2 should be placed at the end of arr1 in ascending order.
 
+//BETTER SOLUTION
+//USING HASHMAP FOR COUNTING AND SORTING
+function relativeSortArrays_1(arr1 , arr2){
+    let result = [];
+    let remaining = [];
+    let map = new Map();
+
+    for(let i = 0; i < arr2.length; i++){
+        map.set(arr2[i] , 0);
+    }
+
+    for(let i = 0; i < arr1.length; i++){
+        if(map.has(arr1[i])){
+            map.set(arr1[i] , map.get(arr1[i]) + 1);
+        }else{
+            remaining.push(arr1[i]);
+        }
+    }
+
+    remaining.sort((a,b) => a - b);
+
+    for(let i = 0; i < arr2.length ; i++){
+        for(let j = 0; j < map.get(arr2[i]); j++){
+            result.push(arr2[i]);
+        }
+    }
+
+    return result.concat(remaining);
+}
+
+console.log(relativeSortArrays_1([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6]));
+console.log(relativeSortArrays_1([28,6,22,8,44,17], [22,28,8,6]));
+
 //BRUTE FORCE SOLUTION
 function relativeSortArrays(arr1 , arr2){
     arr1.sort((a,b) => a- b);
