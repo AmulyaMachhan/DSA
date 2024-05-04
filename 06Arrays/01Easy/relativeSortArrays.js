@@ -4,7 +4,35 @@
 //Sort the elements of arr1 such that the relative ordering of items in arr1 are the same as in arr2. 
 //Elements that do not appear in arr2 should be placed at the end of arr1 in ascending order.
 
-//OPTIMAL SOLUTION 
+//OPTIMAL SOLUTION-1
+//Using built it comparator 
+function relativeSortArrays_3(arr1 , arr2){
+
+    const rank = (map , element) => {
+        return (map.has(element)) ? map.get(element) : map.size;
+    }
+
+    const map = new Map();
+    arr2.forEach((element, index) => {
+        map.set(element , index);
+    });
+
+    arr1.sort((a,b) => {
+        let rankA = rank(map, a);
+        let rankB = rank(map, b);
+        if(rankA == rankB){
+            return a -b;
+        }
+        return rankA - rankB;
+    })
+
+    return arr1;
+}
+
+console.log(relativeSortArrays_3([2,3,1,3,2,4,6,7,9,2,19], [2,1,4,3,9,6]));
+console.log(relativeSortArrays_3([28,6,22,8,44,17], [22,28,8,6]));
+
+//OPTIMAL SOLUTION-2
 //Using counting sort
 function relativeSortArrays_2(arr1 , arr2){
     let max = Math.max(...arr2);
