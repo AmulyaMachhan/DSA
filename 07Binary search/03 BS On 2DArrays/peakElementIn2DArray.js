@@ -42,4 +42,12 @@ console.table(peakElement2DMatrix([
     [2,1,2],
 ]));
 
-console.log(peakElement2DMatrix([[10,20,15],[21,30,14],[7,16,32]]))
+console.log(peakElement2DMatrix([[10,20,15],[21,30,14],[7,16,32]]));
+// Time Complexity-
+//  Best Case = O(1);
+//  Worst Case = O(4 * n * m);
+//This is because for the worst case the last element is the peak element and to search till there it requires n and m time loop and for each time 4 conditions are checked if the upper , bottom , left and right elements are less.
+
+// Space Complecity = O(1)
+// No extra space needed
+
