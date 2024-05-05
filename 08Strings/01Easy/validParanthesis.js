@@ -29,3 +29,9 @@ function isValidParanthesis(string){
 
 console.log(isValidParanthesis("(){}[]"));
 console.log(isValidParanthesis("(]"));
+
+//Time complexity: O(n), where n is the length of the input string. 
+//We iterate through each character in the string once.
+
+//Space complexity: O(n), where n is the length of the input string. 
+//In the worst case, the stack can hold all opening brackets in the string.
