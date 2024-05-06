@@ -7,6 +7,30 @@
 // Open brackets must be closed in the correct order.
 // Every close bracket has a corresponding open bracket of the same type.
 
+//APPROACH - 2
+//Better approach 
+//Uses HashMap and stack both
+function isValidParanthesis_1(string){
+    const stack = [];
+    const pairs = {
+        "(" : ")",
+        "{" : "}",
+        "[" : "]",
+    };
+
+    for(const char of string){
+        if(pairs[char]) stack.push(char);
+        else{
+            if (pairs[stack.pop()] !== char) return false;  
+        }
+    }
+    return !stack.length;
+}
+
+console.log(isValidParanthesis_1("(){}[]"));
+console.log(isValidParanthesis_1("(]"));
+//APPROACH - 1 
+//Using only stack
 function isValidParanthesis(string){
     let stack = [];
 
