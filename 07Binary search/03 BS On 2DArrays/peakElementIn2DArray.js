@@ -7,6 +7,32 @@
 
 // You must write an algorithm that runs in O(m log(n)) or O(n log(m)) time.
 
+//BETTER APPROACH
+//To find the largest element in the 2D Array
+function peakElement2DMatrix_1(matrix){
+    let n = matrix.length;
+    let m = matrix[0].length;
+
+    let max = -Infinity;
+    let ans = [];
+    for(let i = 0 ; i < n ; i++){
+        for(let j = 0 ; j < m ; j++){
+            if(matrix[i][j] > max){
+                max = Math.max(max , matrix[i][j]);
+                ans = [i , j];
+            }
+        }
+    }
+    return ans;
+}
+
+console.log(peakElement2DMatrix_1([
+    [1,2,1],
+    [3,4,3],
+    [2,1,2],
+]));
+
+console.log(peakElement2DMatrix_1([[10,20,15],[21,30,14],[7,16,32]]));
 //BRUTE FORCE APPROACH
 function peakElement2DMatrix(array){
     let n = array.length;
