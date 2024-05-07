@@ -33,6 +33,13 @@ console.log(peakElement2DMatrix_1([
 ]));
 
 console.log(peakElement2DMatrix_1([[10,20,15],[21,30,14],[7,16,32]]));
+
+//TIME COMPLEXITY = O(N * M)
+//This because the inner loop runs m times and outer loop works n times
+
+//SPACE COMPLEXITY = O(1)
+//No Extra space is needed
+
 //BRUTE FORCE APPROACH
 function peakElement2DMatrix(array){
     let n = array.length;
