@@ -27,6 +27,12 @@ function isValidParanthesis_1(string){
     return !stack.length;
 }
 
+// Time complexity: O(n), where n is the length of the input string. 
+// We iterate through each character in the string once.
+
+// Space complexity: O(n), where n is the length of the input string. 
+// In the worst case, the stack can hold all opening brackets in the string.
+
 console.log(isValidParanthesis_1("(){}[]"));
 console.log(isValidParanthesis_1("(]"));
 //APPROACH - 1 
