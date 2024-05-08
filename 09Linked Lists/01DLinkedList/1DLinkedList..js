@@ -12,7 +12,7 @@ class LinkedList{
     }
 
     //Add element to the last of the list
-    add(data){
+    append(data){
         let node = new Node(data);
         let current;
          
@@ -29,7 +29,7 @@ class LinkedList{
     }
 
     //add element to the starting of the list
-    append(data){
+    prepend(data){
         let node = new Node(data);
         let current = this.head;
 
@@ -137,25 +137,52 @@ class LinkedList{
     }
     //Prints the entire list;
     printList(){
-        let str = "";
+        let arr = [];
         let current = this.head;
         while(current){
-            str += current.data + "->";
+            arr.push(current.data);
             current = current.next;
         }
-        console.log(str);    
+        console.log(arr.join(" -> "));    
     }
 
     printSize(){
         console.log(this.size);
     }
+
+    convertArrayIntoLinkedList(array){
+        let node = new Node(array[0]);
+        let current;
+        if(this.head == null){
+            this.head = node;
+        }else{
+            current = this.head;
+            while(current.next){
+                current = current.next;
+            }
+            current.next = node;
+        }
+        this.size++;
+
+        let temp = node;
+
+        for(let i = 1; i < array.length; i++){
+            let newNode = new Node(array[i]);
+
+            temp.next = newNode;
+            temp = newNode;
+            
+            this.size++;
+        }
+        this.printList();
+    }
 }
 
 let l1= new LinkedList();
-l1.add(2);
-l1.add(3);
-l1.add(4);
-l1.append(1);
+l1.append(2);
+l1.append(3);
+l1.append(4);
+l1.prepend(1);
 l1.insertAt(0 , 5);
 l1.printList();
 l1.removeFrom(4); 
@@ -165,4 +192,5 @@ l1.printList();
 console.log(l1.indexOf(3))
 l1.printSize();
 
+l1.convertArrayIntoLinkedList([1,2,3,4,5]);
 
