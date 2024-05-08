@@ -7,6 +7,49 @@
 
 // You must write an algorithm that runs in O(m log(n)) or O(n log(m)) time.
 
+//OPTIMAL APPROACH
+function maxElementForGivenIndex(matrix , column){
+    let max = -Infinity;
+    let row = -1;
+    for(let i = 0 ; i < matrix.length ; i++){
+        if(matrix[i][column] > max){
+            max = matrix[i][column];
+            row = i;
+        }
+    }
+    return row;
+}
+function peakElement2DMatrix_2(matrix){
+    let n = matrix.length;
+    let m = matrix[0].length;
+
+    let low = 0 , high = m - 1;
+    while(low <= high){
+        let mid = Math.floor((high + low)/2);
+        let rowIndex = maxElementForGivenIndex(matrix , mid);
+        let left = (mid - 1) >= 0 ? matrix[rowIndex][mid - 1] : -1;
+        let right = (mid + 1) < m - 1 ? matrix[rowIndex][mid + 1] : -1;
+        if(matrix[rowIndex][mid] > left && matrix[rowIndex][mid] > right){
+            return [rowIndex , mid];
+        }else if(matrix[rowIndex][mid] > left){
+            low = mid + 1;
+        }else{
+            high = mid - 1;
+        }
+    }
+    return -1;
+}
+console.log(peakElement2DMatrix_2([
+    [1,2,1],
+    [3,4,3],
+    [2,1,2],
+]));
+
+console.log(peakElement2DMatrix_2([
+    [10,20,15],
+    [21,30,14],
+    [7,16,32],
+]));
 //BETTER APPROACH
 //To find the largest element in the 2D Array
 function peakElement2DMatrix_1(matrix){
@@ -25,7 +68,6 @@ function peakElement2DMatrix_1(matrix){
     }
     return ans;
 }
-
 console.log(peakElement2DMatrix_1([
     [1,2,1],
     [3,4,3],
@@ -33,6 +75,7 @@ console.log(peakElement2DMatrix_1([
 ]));
 
 console.log(peakElement2DMatrix_1([[10,20,15],[21,30,14],[7,16,32]]));
+
 
 //TIME COMPLEXITY = O(N * M)
 //This because the inner loop runs m times and outer loop works n times
