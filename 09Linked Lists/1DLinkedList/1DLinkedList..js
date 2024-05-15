@@ -63,78 +63,6 @@ class LinkedList{
         };
     }
 
-    //removes an element from the given index;
-    removeFrom(index){
-        if(index < 0 || index > this.size){
-            return console.log("Enter valid position in the list");
-        }else{
-            let current , previous;
-            let it = 0;
-            current = this.head;
-            previous = current;
-            if(index == 0){
-                this.head = current.next;
-            }else{
-                while(it < index){
-                    it++;
-                    previous = current;
-                    current = current.next;
-                }
-                previous.next = current.next;
-            }
-            this.size--;
-            
-            return current.data;
-        }
-    }
-
-    //remove the given element
-    removeElement(data){
-        let current = this.head;
-        let previous = null;
-
-        while(current){
-            if(current.data == data){
-                if(previous == null){
-                    this.head = current.next;
-                }else{
-                    previous.next = current.next
-                }
-                this.size--;
-                return current.data;
-            } 
-            previous = current;
-            current = current.next;
-        }
-        return -1;
-    }
-
-    //returns index of that particular element
-    indexOf(data){
-        let current = this.head;
-        let index = 0;
-
-        while(current){
-            if(current.data == data){
-                return index;
-            }else{
-                current = current.next;
-                index++;
-            }
-        }
-
-        return -1;
-    }
-
-    //checks if the list is empty
-    isEmpty(){
-        return this.size == 0; 
-    }
-    
-    //deleting the entire list
-    clear(){
-        this.head == null;
-    }
     //Prints the entire list;
     printList(){
         let str = "";
@@ -158,12 +86,3 @@ l1.add(4);
 l1.append(1);
 l1.insertAt(0 , 5);
 l1.printList();
-l1.removeFrom(4); 
-l1.printList();
-l1.removeElement(2); 
-l1.printList();
-console.log(l1.indexOf(3))
-l1.printSize();
-
-let l2 = new LinkedList(new Node(2));
-l2.printList()
