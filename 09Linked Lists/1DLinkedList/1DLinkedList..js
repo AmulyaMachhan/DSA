@@ -63,6 +63,7 @@ class LinkedList{
         };
     }
 
+
     //Prints the entire list;
     printList(){
         let str = "";
@@ -86,3 +87,6 @@ l1.add(4);
 l1.append(1);
 l1.insertAt(0 , 5);
 l1.printList();
+l1.removeFrom(4); 
+l1.printList();
+
