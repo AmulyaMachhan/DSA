@@ -63,6 +63,51 @@ class LinkedList{
         };
     }
 
+    //removes an element from the given index;
+    removeFrom(index){
+        if(index < 0 || index > this.size){
+            return console.log("Enter valid position in the list");
+        }else{
+            let current , previous;
+            let it = 0;
+            current = this.head;
+            previous = current;
+            if(index == 0){
+                this.head = current.next;
+            }else{
+                while(it < index){
+                    it++;
+                    previous = current;
+                    current = current.next;
+                }
+                previous.next = current.next;
+            }
+            this.size--;
+            
+            return current.data;
+        }
+    }
+
+    //remove the given element
+    removeElement(data){
+        let current = this.head;
+        let previous = null;
+
+        while(current){
+            if(current.data == data){
+                if(previous == null){
+                    this.head = current.next;
+                }else{
+                    previous.next = current.next
+                }
+                this.size--;
+                return current.data;
+            } 
+            previous = current;
+            current = current.next;
+        }
+        return -1;
+    }
 
     //Prints the entire list;
     printList(){
@@ -89,4 +134,8 @@ l1.insertAt(0 , 5);
 l1.printList();
 l1.removeFrom(4); 
 l1.printList();
+l1.removeElement(2); 
+l1.printList();
+
+
 
