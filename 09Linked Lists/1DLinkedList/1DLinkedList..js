@@ -109,6 +109,32 @@ class LinkedList{
         return -1;
     }
 
+    //returns index of that particular element
+    indexOf(data){
+        let current = this.head;
+        let index = 0;
+
+        while(current){
+            if(current.data == data){
+                return index;
+            }else{
+                current = current.next;
+                index++;
+            }
+        }
+
+        return -1;
+    }
+
+    //checks if the list is empty
+    isEmpty(){
+        return this.size == 0; 
+    }
+    
+    //deleting the entire list
+    clear(){
+        this.head == null;
+    }
     //Prints the entire list;
     printList(){
         let str = "";
@@ -136,6 +162,7 @@ l1.removeFrom(4);
 l1.printList();
 l1.removeElement(2); 
 l1.printList();
-
+console.log(l1.indexOf(3))
+l1.printSize();
 
 
