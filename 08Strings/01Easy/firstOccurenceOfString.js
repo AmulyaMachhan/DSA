@@ -1,3 +1,16 @@
+//PROBLEM STATEMENT
+//Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+
+ 
+//Using in Built-in function 
+function firstOccurenceOfString_2(haystack , needle){
+    if(haystack.includes(needle)) return haystack.indexOf(needle);
+    return -1;
+}
+
+console.log(firstOccurenceOfString_2("sadbutsad" , "sad"));
+console.log(firstOccurenceOfString_2("leetcode" , "leeto"));
+
 //OPTIMAL APPROACH
 //SLIDING WINDOW AND TWO POINTERS
 function firstOccurenceOfString_1(haystack , needle){
