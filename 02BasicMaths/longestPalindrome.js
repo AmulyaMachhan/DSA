@@ -39,7 +39,7 @@ function longestPalindrome_1(str){
     let n = s.length;
     let length = 0;
     let set = new Set();
-    for(i = 0 ; i < n ; i++){
+    for(let i = 0 ; i < n ; i++){
         if(set.has(s[i])){
             length += 2;
             set.delete(s[i]);
