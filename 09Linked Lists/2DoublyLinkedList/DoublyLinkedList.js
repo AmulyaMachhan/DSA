@@ -17,4 +17,14 @@ class DoublyLinkedList{
         this.tail = this.head;
     }
 
+    
+    append(element){
+        let node = new Node(element);
+
+        this.tail.next = node;
+        node.previous = this.tail;
+        this.tail = node;
+
+        this.length++
+    }
 }
