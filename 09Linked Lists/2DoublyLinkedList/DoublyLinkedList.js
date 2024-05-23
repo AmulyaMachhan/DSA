@@ -17,7 +17,18 @@ class DoublyLinkedList{
         this.tail = this.head;
     }
 
-    
+    printList(){
+        let array = [];
+        let node = this.head;
+        while(node.next){
+            array.push(node);
+            node = node.next;
+        }
+
+        console.log(array.join(" <--> "));
+        return this;
+    }
+    //Insert node at the end of the list;    
     append(element){
         let node = new Node(element);
 
@@ -25,6 +36,7 @@ class DoublyLinkedList{
         node.previous = this.tail;
         this.tail = node;
 
-        this.length++
+        this.length++;
+        this.printList();
     }
 }
