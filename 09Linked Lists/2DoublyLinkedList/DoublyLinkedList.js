@@ -148,3 +148,4 @@ dl.insert(10, 5);
 
 dl.delete(2);
 console.log(dl.length);
+
