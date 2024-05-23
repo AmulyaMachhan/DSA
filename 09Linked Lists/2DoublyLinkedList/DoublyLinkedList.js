@@ -39,4 +39,16 @@ class DoublyLinkedList{
         this.length++;
         this.printList();
     }
+
+    //Insert node at the beginning of the list
+    prepend(element){
+        let node = new Node(element);
+
+        node.next = this.head;
+        this.head.previous = node;
+        this.head = node;
+
+        this.length++;
+        this.printList();
+    }
 }
