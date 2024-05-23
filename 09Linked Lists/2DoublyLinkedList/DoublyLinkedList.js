@@ -7,34 +7,36 @@ class Node{
 }
 
 class DoublyLinkedList{
-    constructor(value){
-        this.head = {
-            value : value,
-            previous : null,
-            next : null
-        }
-        this.length = 1;
-        this.tail = this.head;
+    constructor(element){
+        this.head = null
+        this.tail = null;
+        this.length = 0;
     }
 
     printList(){
         let array = [];
         let node = this.head;
-        while(node.next){
-            array.push(node);
+        while(node !== null){
+            array.push(node.element);
             node = node.next;
         }
-
-        console.log(array.join(" <--> "));
+        
+        if(array.length == 1) console.log(array[0]);
+        else console.log(array.join(" <--> "));
         return this;
     }
     //Insert node at the end of the list;    
     append(element){
         let node = new Node(element);
 
-        this.tail.next = node;
-        node.previous = this.tail;
-        this.tail = node;
+        if(this.head == null){
+            this.head = node;
+            this.tail = node
+        }else{
+            this.tail.next = node;
+            node.previous = this.tail;
+            this.tail = node;
+        }
 
         this.length++;
         this.printList();
@@ -44,11 +46,65 @@ class DoublyLinkedList{
     prepend(element){
         let node = new Node(element);
 
-        node.next = this.head;
-        this.head.previous = node;
-        this.head = node;
+        if(this.head == null){
+            this.head = node;
+            this.tail = node
+        }
+        else{
+            node.next = this.head;
+            this.head.previous = node;
+            this.head = node;
+        }
+
+        this.length++;
+        this.printList();
+    }
+
+    //Insert Element at the specified index
+    insert(element , index){
+        if(!Number.isInteger(index) || index < 0 || index > this.length){
+            console.log(`Invalid index. Current Length is ${this.length}`);
+            return this;
+        }
+
+        if(index == 0){
+            this.prepend(node);
+            return this;
+        }
+
+        if(index == this.length){
+            this.append(node);
+            return this;
+        }
+        
+        let newNode = new Node(element);
+        let previousNode = this.head;
+
+        for(let i= 1 ; i < index; i++){
+            previousNode = previousNode.next;
+        }
+
+        let nextNode = previousNode.next;
+
+        newNode.next = nextNode;
+        previousNode.next = newNode;
+        newNode.previous = previousNode;
+        
+        if(nextNode){
+            nextNode.previous = newNode;
+        }
 
         this.length++;
         this.printList();
     }
 }
+
+let dl = new DoublyLinkedList();
+dl.append(3);
+dl.append(4);
+dl.prepend(5);
+dl.insert(10, 2);
+dl.insert(10, 5);
+console.log(dl.length);
+
+
