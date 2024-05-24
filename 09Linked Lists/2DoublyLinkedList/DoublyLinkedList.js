@@ -97,6 +97,46 @@ class DoublyLinkedList{
         this.length++;
         this.printList();
     }
+
+    delete(index){
+        if(!Number.isInteger(index) || index < 0 || index > this.length){
+            console.log(`Invalid index. Current Length is ${this.length}`);
+        }
+
+        if(index == 0){
+            this.head = this.head.next;
+            this.head.previous = null;
+
+            this.length--;
+            this.printList();
+            return this;
+        }
+
+        if(index == this.length - 1){
+            this.tail = this.tail.previous;
+            this.tail.next = null;
+
+            this.length--;
+            this.printList();
+            return this;
+        }
+
+        let previousNode = this.head;
+
+        for(let i = 1 ; i < index ; i++){
+            previousNode = previousNode.next;
+        }
+
+        let deleteNode = previousNode.next;
+        let nextNode = deleteNode.next;
+
+        previousNode.next = nextNode;
+        nextNode.previous = previousNode;
+
+        this.length--;
+        this.printList();
+        return this;
+    }
 }
 
 let dl = new DoublyLinkedList();
@@ -105,6 +145,6 @@ dl.append(4);
 dl.prepend(5);
 dl.insert(10, 2);
 dl.insert(10, 5);
+
+dl.delete(2);
 console.log(dl.length);
-
-
