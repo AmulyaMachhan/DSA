@@ -1,3 +1,9 @@
+//PROBLEM STATEMENT
+//Given a string array words, return an array of all characters that show up in all strings within the words (including duplicates). 
+
+//You may return the answer in any order.
+
+//OPTIMAL SOLUTION
 function commonLetters(strings){
 
     let minFreq = new Array(26).fill(Infinity);
@@ -23,3 +29,5 @@ function commonLetters(strings){
 }
 
 console.log(commonLetters(["bella","label","roller"]));
+
+
