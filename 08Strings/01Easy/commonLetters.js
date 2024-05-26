@@ -30,4 +30,19 @@ function commonLetters(strings){
 
 console.log(commonLetters(["bella","label","roller"]));
 
-
+//ANOTHER SOLUTION
+function commonLetters_1(strings){
+    let result = [];
+    let str = strings[0];
+    
+    str.split('').forEach((element) => {
+        if(strings.every( word => word.includes(element))){
+            result.push(element);
+            strings.map(word => word.replace(element , ''));
+        }
+    });
+    
+    return result;
+}
+console.log(commonLetters_1(["bella","label","roller"]));
+console.log(commonLetters_1(["cool","lock","cook"]));
