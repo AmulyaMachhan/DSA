@@ -10,6 +10,34 @@
 // A subarray is a contiguous part of the array.
 // An integer x is a multiple of k if there exists an integer n such that x = n * k. 0 is always a multiple of k.
 
+//OPTIMAL SOLUTION
+function continousSubArraySum_1(array , k){
+    let sum = 0;
+    let map = new Map();
+    map.set(0 , -1);
+
+    for(let i = 0 ; i < array.length ; i++){
+        sum += array[i];
+
+        let mod = sum % k;
+
+        if(mod < 0) mod += k;
+
+        if(map.has(mod)){
+            if(i - map.get(mod) > 1)
+                console.table(map);
+                return true;
+        }else{
+            map.set(mod , i);
+        }
+    }
+
+    return false;
+}
+
+console.log(continousSubArraySum_1([23,2,4,6,7] , 6));
+console.log(continousSubArraySum_1([23,2,5,6,7] , 6));
+console.log(continousSubArraySum_1([23,2,7,6,8] , 6));
 //BRUTE FORCE SOLUTION 
 function continousSubArraySum(array , k){
     let result = [];
