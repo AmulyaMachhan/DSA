@@ -7,7 +7,7 @@ class Node{
 }
 
 class DoublyLinkedList{
-    constructor(element){
+    constructor(){
         this.head = null
         this.tail = null;
         this.length = 0;
@@ -137,6 +137,12 @@ class DoublyLinkedList{
         this.printList();
         return this;
     }
+
+    convertArrayIntoDoubleLinkedList(array){
+        array.forEach(element => {
+            this.append(element);   
+        });
+    }
 }
 
 let dl = new DoublyLinkedList();
@@ -148,4 +154,6 @@ dl.insert(10, 5);
 
 dl.delete(2);
 console.log(dl.length);
+
+dl.convertArrayIntoDoubleLinkedList([1,2,3,4,5]);
 
