@@ -170,6 +170,7 @@ class DoublyLinkedList{
     }
 }
 // OPTIMAL APPROACH
+// Using two pointers 
 function reverseDoublyLinkedList_1(array){
     const dl1 = new DoublyLinkedList();
     let head = dl1.convertArrayIntoDoubleLinkedList(array).head;   
