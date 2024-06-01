@@ -139,9 +139,32 @@ class DoublyLinkedList{
     }
 
     convertArrayIntoDoubleLinkedList(array){
-        array.forEach(element => {
-            this.append(element);   
-        });
+        if(array.length === 0){
+            console.log("Invalid array")
+            return this;
+        } 
+
+        let node = new Node(array[0]);
+        if(this.head === null){
+            this.head = node;
+        }else{
+            this.tail.next = node;
+            node.previous = this.tail;
+            this.tail = node;
+        }
+
+        this.length++; 
+
+        for(let i = 1; i < array.length; i++){
+            let newNode = new Node(array[i]);
+            
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
+            
+            this.length++;
+        }
+        this.printList();
     }
 }
 
@@ -156,4 +179,5 @@ dl.delete(2);
 console.log(dl.length);
 
 dl.convertArrayIntoDoubleLinkedList([1,2,3,4,5]);
+console.log(dl.length);
 
