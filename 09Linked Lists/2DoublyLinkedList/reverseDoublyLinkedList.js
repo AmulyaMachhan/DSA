@@ -166,13 +166,36 @@ class DoublyLinkedList{
             this.length++;
         }
         this.printList();
-        return this.head;
+        return this;
     }
 }
+// OPTIMAL APPROACH
+function reverseDoublyLinkedList_1(array){
+    const dl1 = new DoublyLinkedList();
+    let head = dl1.convertArrayIntoDoubleLinkedList(array).head;   
+    let prev = null;
+    let curr = head;
 
+    while(curr !== null){
+        let next = curr.next;
+        curr.next = prev;
+        curr.prev = next;
+        prev = curr;
+        curr = next;
+    }
+
+    dl1.head = prev;
+    dl1.printList();
+}
+
+reverseDoublyLinkedList_1([1,2,3,4,5]);
+
+// BRUTE FORCE APPROACH
+// A brute-force approach involves replacing data in a doubly linked list. First, we traverse the list and store node data in a stack. 
+// Then, in a second pass, we assign elements from the stack to nodes, ensuring a reverse order replacement since stacks follow the Last-In-First-Out (LIFO) principle.
 function reverseDoublyLinkedList(array){
     let dl = new DoublyLinkedList();
-    let head = dl.convertArrayIntoDoubleLinkedList(array);
+    let head = dl.convertArrayIntoDoubleLinkedList(array).head;
 
     let stack = [];
     let temp = head;
@@ -188,7 +211,7 @@ function reverseDoublyLinkedList(array){
         temp = temp.next;
     }
 
-    return head;
+    dl.printList();
 }
 
-console.table(reverseDoublyLinkedList([1,2,3,4,5]));
+reverseDoublyLinkedList([1,2,3,4,5]);
