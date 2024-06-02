@@ -181,3 +181,4 @@ console.log(dl.length);
 dl.convertArrayIntoDoubleLinkedList([1,2,3,4,5]);
 console.log(dl.length);
 
+export {Node , DoublyLinkedList}
