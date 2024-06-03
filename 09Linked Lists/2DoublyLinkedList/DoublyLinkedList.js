@@ -147,6 +147,7 @@ class DoublyLinkedList{
         let node = new Node(array[0]);
         if(this.head === null){
             this.head = node;
+            this.tail = node;
         }else{
             this.tail.next = node;
             node.previous = this.tail;
