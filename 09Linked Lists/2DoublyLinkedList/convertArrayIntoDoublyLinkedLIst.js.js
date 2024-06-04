@@ -26,7 +26,6 @@ function printList(head){
         arr.push(head.element);
         head = head.next;
     }
-    
     console.log(arr.join(" <-> "))
 }
 
