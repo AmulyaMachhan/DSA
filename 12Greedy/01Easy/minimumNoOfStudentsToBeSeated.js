@@ -56,4 +56,44 @@ function minimumNoOfStudentToBeSeated(seats , students){
     return moves;
 }
 
-console.log(minimumNoOfStudentToBeSeated([3,1,5],[2,7,4]))
+console.log(minimumNoOfStudentToBeSeated([3,1,5],[2,7,4]));
+
+// APPROACH - 2
+// Using counting sort
+function minimumNoOfStudentToBeSeated_1(seats , students){
+    
+    let maxPositions = 100;
+    const seatCount = new Array(maxPositions + 1).fill(0);
+    const studentCount = new Array(maxPositions + 1).fill(0);
+
+    for(let seat of seats){
+        seatCount[seat]++;
+    }
+    for(let student of students){
+        studentCount[student]++;
+    };
+
+    let seatIdx = 0;
+    let studentIdx = 0;
+    let moves = 0;
+
+    while(seatIdx <= maxPositions && studentIdx <= maxPositions){
+        while(seatIdx <= maxPositions && seatCount[seatIdx] === 0){
+            seatIdx++;
+        }
+        while(studentIdx <= maxPositions && studentCount[studentIdx] === 0){
+            studentIdx++;
+        }
+
+        if(seatIdx <= maxPositions && studentIdx <= maxPositions){
+            const count = Math.min(seatCount[seatIdx] , studentCount[studentIdx]);
+            moves += count* Math.abs(seatIdx - studentIdx);
+            seatCount[seatIdx] -= count;
+            studentCount[studentIdx] -= count;
+        }
+    }
+
+    return moves;
+}
+
+console.log(minimumNoOfStudentToBeSeated_1([3,1,5],[2,7,4]));
