@@ -20,6 +20,23 @@ function printList(head){
     }
 }
 
+// OPTIMAL APPROACH - 1
+function reverseOfAlinkedList_1(head){
+    let temp = head;
+    let prev = null;
+
+    while(temp !== null){
+        let front = temp.next;
+        temp.next = prev;
+        prev = temp;
+        temp = front;
+    }
+
+    return prev;
+}
+
+let head1 = reverseOfAlinkedList_1(head);
+printList(head1);
 
 // BRUTE FORCE APPROACH
 function reverseOfAlinkedList(head){
