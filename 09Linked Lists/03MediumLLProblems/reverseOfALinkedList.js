@@ -19,8 +19,24 @@ function printList(head){
         temp = temp.next;
     }
 }
+// RECURSIVE OPTIMAL APPROACH - 2
+function reverseOfAlinkedList_2(head){
+    if(head == null && head.next == null){
+        return head;
+    }
 
-// OPTIMAL APPROACH - 1
+    let newHead = reverseOfAlinkedList_2(head.next);
+    let front = head.next;
+    front.next = head;
+    head.next = null;
+
+    return newHead;
+}
+
+let head3 = reverseOfAlinkedList_1(head);
+printList(head3);
+
+// ITERATIVE OPTIMAL APPROACH - 1
 function reverseOfAlinkedList_1(head){
     let temp = head;
     let prev = null;
