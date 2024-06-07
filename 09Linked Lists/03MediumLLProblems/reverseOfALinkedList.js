@@ -21,7 +21,7 @@ function printList(head){
 }
 // RECURSIVE OPTIMAL APPROACH - 2
 function reverseOfAlinkedList_2(head){
-    if(head == null && head.next == null){
+    if(head == null || head.next == null){
         return head;
     }
 
