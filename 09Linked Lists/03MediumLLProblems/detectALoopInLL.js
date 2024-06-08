@@ -33,3 +33,21 @@ function detectALoopInLL(head){
 }
 
 console.log(detectALoopInLL(head));
+
+// BRUTE FORCE SOLUTION 
+function detectALoopInLL_1(head){
+    let temp = head;
+    let nodeMap = new Map();
+
+    while(temp !== null){
+        if(nodeMap.has(temp)){
+            return true;
+        }
+        nodeMap.set(temp , true);
+        temp = temp.next;
+    }
+
+    return false;
+}
+
+console.log(detectALoopInLL_1(head));
