@@ -18,6 +18,7 @@ fourth.next = fifth;
 // Create a loop
 fifth.next = third;
 
+//OPTIMAL SOLUTION
 function detectALoopInLL(head){
     let slow = head;
     let fast = head;
