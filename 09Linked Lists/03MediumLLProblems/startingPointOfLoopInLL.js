@@ -45,6 +45,33 @@ fourth.next = fifth;
 // Create a loop
 fifth.next = third;
 
+// OPTIMAL APPRAOCH
+function startingPointOfLoopInLL_1(head){
+    let slow = head; 
+    let fast = head;
+
+    while(fast?.next){
+        slow = slow.next;
+        fast = fast.next.next;
+
+        if(slow == fast){
+            slow = head;
+
+            while(slow !== fast){
+                slow = slow.next;
+                fast = fast.next;
+            }
+            return slow.val;
+        }
+    }
+
+    
+    return null;
+}
+
+console.log(startingPointOfLoopInLL_1(head));
+
+// BRUTE FORCE APPROACH
 function startingPointOfLoopInLL(head){
     let temp = head;
     let nodeMap = new Map();
