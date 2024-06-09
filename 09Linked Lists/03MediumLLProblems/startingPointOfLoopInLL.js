@@ -24,6 +24,27 @@
 // The number of the nodes in the list is in the range [0, 104].
 // -105 <= Node.val <= 105
 // pos is -1 or a valid index in the linked-list.
+
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+const head = new Node(1);
+const second = new Node(2);
+const third = new Node(3);
+const fourth = new Node(4);
+const fifth = new Node(5);
+
+head.next = second;
+second.next = third;
+third.next = fourth;
+fourth.next = fifth;
+// Create a loop
+fifth.next = third;
+
 function startingPointOfLoopInLL(head){
     let temp = head;
     let nodeMap = new Map();
@@ -37,3 +58,5 @@ function startingPointOfLoopInLL(head){
     }
     return null;
 }
+
+console.log(startingPointOfLoopInLL(head));
