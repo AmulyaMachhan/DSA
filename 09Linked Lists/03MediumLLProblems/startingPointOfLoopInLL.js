@@ -49,24 +49,28 @@ fifth.next = third;
 function startingPointOfLoopInLL_1(head){
     let slow = head; 
     let fast = head;
-
+    let hasCycle = false;
+    
     while(fast?.next){
         slow = slow.next;
         fast = fast.next.next;
 
         if(slow == fast){
-            slow = head;
-
-            while(slow !== fast){
-                slow = slow.next;
-                fast = fast.next;
-            }
-            return slow.val;
+            hasCycle = true;
+            break;
         }
     }
+    if(!hasCycle){
+        return null;
+    }
 
-    
-    return null;
+    slow = head; 
+
+    while(slow !== fast){
+        slow = slow.next;
+        fast = fast.next;
+    }
+    return slow.val;
 }
 
 console.log(startingPointOfLoopInLL_1(head));
