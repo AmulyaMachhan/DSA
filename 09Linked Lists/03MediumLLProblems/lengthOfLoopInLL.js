@@ -27,29 +27,50 @@
 // Constraints:
 // 1 <= N <= 1000
 // 0 <= C <= N-1
+
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+const head = new Node(1);
+const second = new Node(2);
+const third = new Node(3);
+const fourth = new Node(4);
+const fifth = new Node(5);
+
+head.next = second;
+second.next = third;
+third.next = fourth;
+fourth.next = fifth;
+// Create a loop
+fifth.next = third;
+
 function lengthOfAloop(head){
-    let x = 0;
-    let y = 0;
+    let length = 1;
     let slow = head;
     let fast = head;
-    let hasCycle = 0;
+    let hasCycle = false;
     while(fast?.next){
-        slow =slow.next;
+        slow = slow.next;
         fast = fast.next.next;
-        x++;
         if(slow === fast){
             hasCycle = true;
+            break;
         }
     }
 
     if(!hasCycle)return 0;
 
-    slow = head;
+    fast = fast.next
     while(slow !== fast){
-        slow = slow.next;
         fast = fast.next;
-        x++;
+        length++;
     }
     
-    return x;
+    return length;
 }
+
+console.log(lengthOfAloop(head));
