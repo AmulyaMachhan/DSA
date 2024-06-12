@@ -34,18 +34,34 @@ function palindromeLinkedList(head){
         slow = slow.next;
         fast = fast.next.next;
     }
-    slow= slow.next;
-    fast = head;
-    while(slow.next){
-        if(slow !== fast){
+
+    let newHead = reverseOfAlinkedList(slow.next);
+
+    let first = head;
+    let second = newHead;
+
+    while(!second.next){
+        if(first !== second){
             return false;
         }
-
-        slow = slow.next;
-        fast = fast.next;
+        first = first.next;
+        second = second.next;
     }
 
     return true;
 }
 
+function reverseOfAlinkedList(head){
+    let temp = head;
+    let prev = null;
+    let next = null;
+    while(temp !== null){
+        next = temp.next;
+        temp.next = prev;
+        prev = temp;
+        temp = next;
+    }
+
+    return prev;
+}
 console.log(palindromeLinkedList(head));
