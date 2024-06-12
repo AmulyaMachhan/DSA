@@ -13,7 +13,20 @@
 // The number of nodes in the list is in the range [1, 105].
 // 0 <= Node.val <= 9
 
-function palindromeLinkedList(){
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+const head = new Node(1);
+    head.next = new Node(5);
+    head.next.next = new Node(2);
+    head.next.next.next = new Node(5);
+    head.next.next.next.next = new Node(1);
+
+function palindromeLinkedList(head){
     let slow = head;
     let fast = head;
 
@@ -21,9 +34,9 @@ function palindromeLinkedList(){
         slow = slow.next;
         fast = fast.next.next;
     }
-
+    slow= slow.next;
     fast = head;
-    while(slow?.next){
+    while(slow.next){
         if(slow !== fast){
             return false;
         }
@@ -32,5 +45,7 @@ function palindromeLinkedList(){
         fast = fast.next;
     }
 
-    return false;
+    return true;
 }
+
+console.log(palindromeLinkedList(head));
