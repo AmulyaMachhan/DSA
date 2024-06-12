@@ -26,6 +26,8 @@ const head = new Node(1);
     head.next.next.next = new Node(5);
     head.next.next.next.next = new Node(1);
 
+// OPTIMAL APPROACH
+// TORTOISE HARE METHOD
 function palindromeLinkedList(head){
     let slow = head;
     let fast = head;
@@ -65,3 +67,27 @@ function reverseOfAlinkedList(head){
     return prev;
 }
 console.log(palindromeLinkedList(head));
+
+// BRUTE FORCE APPROACH
+function palindromeLinkedList_1(head){
+    let st = [];
+    let temp = head;
+
+    while(!temp){
+        st.push(temp.val);
+        temp = temp.next;
+    }
+
+    temp = head;
+
+    while(!temp){
+        if(temp.val !== st.pop()){
+            return false;
+        }
+        temp = temp.next;
+    }
+
+    return true;
+}
+
+console.log(palindromeLinkedList_1(head));
