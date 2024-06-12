@@ -37,13 +37,13 @@ function palindromeLinkedList(head){
         fast = fast.next.next;
     }
 
-    let newHead = reverseOfAlinkedList(slow.next);
+    let newHead = reverseOfAlinkedList(slow);
 
     let first = head;
     let second = newHead;
 
-    while(!second.next){
-        if(first !== second){
+    while(second !== null){
+        if(first.val !== second.val){
             return false;
         }
         first = first.next;
