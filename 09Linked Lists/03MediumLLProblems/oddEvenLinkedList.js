@@ -16,26 +16,44 @@
 // The number of nodes in the linked list is in the range [0, 104].
 // -106 <= Node.val <= 106
 
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+head.next.next.next = new Node(4);
+head.next.next.next.next = new Node(5);
+head.next.next.next.next.next = new Node(6);
+
 function oddEvenLinkedList(head){
     let oddNode = new Node(0);
     let odd = oddNode;
 
     let evenNode= new Node(0);
     let even = evenNode;
+    let idx = 1;
 
     while(!head){
-        if(head%2){
-            evenNode.next = head;
-            even = evenNode.next;
+        if(idx%2){
+            even.next = head;
+            even = even.next;
         }else{
-            oddNode.next = head;
-            odd = oddNode.next;
+            odd.next = head;
+            odd = odd.next;
         }
         head = head.next;
+        idx++;
     }
 
-    evenNode.next = null;
-    oddNode.next = even.next;
+    even.next = null;
+    odd.next = evenNode.next;
 
-    return odd.next;
+    return oddNode.next;
 }
+
+console.log(oddEvenLinkedList(head));
