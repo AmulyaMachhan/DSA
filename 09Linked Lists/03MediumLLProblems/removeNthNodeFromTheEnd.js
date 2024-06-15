@@ -19,6 +19,20 @@
 // 0 <= Node.val <= 100
 // 1 <= n <= sz
 
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+head.next.next.next = new Node(4);
+head.next.next.next.next = new Node(5);
+
+// BRUTE FORCE APPROACH
 function removeNthNodeFromTheEnd(head , n){
     let temp = head;
     let length = 0;
@@ -39,3 +53,5 @@ function removeNthNodeFromTheEnd(head , n){
 
     return ans.val;
 }
+
+removeNthNodeFromTheEnd(head , 2);
