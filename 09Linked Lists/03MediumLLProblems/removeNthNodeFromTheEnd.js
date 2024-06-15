@@ -32,6 +32,32 @@ head.next.next = new Node(3);
 head.next.next.next = new Node(4);
 head.next.next.next.next = new Node(5);
 
+// OPTIMAL APPROACH
+function removeNthNodeFromTheEnd_1(head , n){
+    let slow = head;
+    let fast = head;
+
+    for(let i = 0; i < n; i++){
+        fast = fast.next;
+    }
+
+    if(fast !== null){
+        let fast = head.next;
+        head = null;
+        return fast;
+    }
+
+    while(fast.next){
+        slow = slow.next;
+        fast = fast.next;
+    }
+
+    let deleteNode = slow;
+    slow.next = slow.next.next;
+    deleteNode = null;
+
+    return head;
+}
 // BRUTE FORCE APPROACH
 function removeNthNodeFromTheEnd(head , n){
     let temp = head;
