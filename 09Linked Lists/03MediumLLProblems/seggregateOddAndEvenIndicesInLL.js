@@ -16,6 +16,21 @@
 // The number of nodes in the linked list is in the range [0, 104].
 // -106 <= Node.val <= 106
 
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+head.next.next.next = new Node(4);
+head.next.next.next.next = new Node(5);
+head.next.next.next.next.next = new Node(6);
+
+//APPROACH 1 
 function seggregateOddAndEvenIndicesInLL(head){
     let even = new Node(0);
     let odd = new Node(0);
@@ -43,3 +58,5 @@ function seggregateOddAndEvenIndicesInLL(head){
 
     return odd.next;
 }
+
+seggregateOddAndEvenIndicesInLL(head);
