@@ -18,8 +18,22 @@
 // -105 <= Node.val <= 105
  
 // Follow up: Can you sort the linked list in O(n logn) time and O(1) memory (i.e. constant space)?
-// BETTER APPROACH
 
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+head.next.next.next = new Node(4);
+head.next.next.next.next = new Node(5);
+head.next.next.next.next.next = new Node(6);
+
+// BETTER APPROACH
 // TIME COMPLEXITY = O(N LOG N);
 // SPACE COMPLEXITY = O( LOG N) (FOR RECURSION STACK);
 function sortLl_1(head){
