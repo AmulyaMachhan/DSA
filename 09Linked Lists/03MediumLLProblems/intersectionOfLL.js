@@ -66,7 +66,30 @@ head2.next = new Node(8);
 head2.next.next = new Node(7);
 head2.next.next.next = head1.next.next.next
 
-// BETTER APPROACH
+// OPTIMAL APPROACH 1
+function intersectionOfLinkedLists_3(head1 , head2){
+    let d1 = head1;
+    let d2 = head2;
+
+    while(d1 !== d2){
+        if(d1 == null){
+            d1 = head2;
+        }else{
+            d1 = d1.next;
+        }
+
+        if(d2 == null){
+            d2 = head1;
+        }else{
+            d2 = d2.next;
+        }
+    }
+
+    return d1;
+}
+
+console.log(intersectionOfLinkedLists_3(head1 , head2));
+// OPTIMAL APPROACH 2
 // Using the difference in length 
 // Approach:
 // We will reduce the search length. This can be done by searching the length of the shorter linked list. How? Let’s see the process.
