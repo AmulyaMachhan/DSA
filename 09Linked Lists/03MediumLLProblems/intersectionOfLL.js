@@ -45,3 +45,25 @@
 // intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect.
  
 // Follow up: Could you write a solution that runs in O(m + n) time and use only O(1) memory?
+
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head1 = new Node(1);
+head1.next = new Node(2);
+head1.next.next = new Node(3);
+head1.next.next.next = new Node(4);
+head1.next.next.next.next = new Node(5);
+head1.next.next.next.next.next = new Node(6);
+
+
+let head2 = new Node(9);
+head2.next = new Node(8);
+head2.next.next = new Node(7);
+head2.next.next.next = new Node(4);
+head2.next.next.next.next = new Node(5);
+head2.next.next.next.next.next = new Node(6);
