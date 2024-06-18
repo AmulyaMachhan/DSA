@@ -67,3 +67,20 @@ head2.next.next = new Node(7);
 head2.next.next.next = new Node(4);
 head2.next.next.next.next = new Node(5);
 head2.next.next.next.next.next = new Node(6);
+
+function intersectionOfLinkedLists(head1, head2){
+
+    while(head2 !== null){
+        let temp1 = head1;
+        while(temp1 !== null){
+            if(temp1 == head2){
+                return head2;
+            }
+            temp1 = temp1.next;
+        }
+        head2 = head2.next;
+    }
+    return 0;
+}
+
+console.log(intersectionOfLinkedLists(head1 , head2));
