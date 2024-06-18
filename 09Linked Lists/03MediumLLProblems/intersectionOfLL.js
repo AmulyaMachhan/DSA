@@ -64,10 +64,32 @@ head1.next.next.next.next.next = new Node(6);
 let head2 = new Node(9);
 head2.next = new Node(8);
 head2.next.next = new Node(7);
-head2.next.next.next = new Node(4);
-head2.next.next.next.next = new Node(5);
-head2.next.next.next.next.next = new Node(6);
+head2.next.next.next = head1.next.next.next
 
+// BETTER APPROACH 
+// Using hashing 
+function intersectionOfLinkedLists_1(head1 , head2){
+    let set = new Set();
+
+    let temp = head1;
+    while(temp !== null){
+        set.add(temp);
+        temp = temp.next;
+    }
+
+    while(head2 !== null){
+        if(set.has(head2)){
+            return head2;
+        }
+        head2 = head2.next;
+    }
+
+    return 0;
+}
+
+console.log(intersectionOfLinkedLists(head1 , head2));
+
+// BRUTE FORCE APPROACH
 function intersectionOfLinkedLists(head1, head2){
 
     while(head2 !== null){
