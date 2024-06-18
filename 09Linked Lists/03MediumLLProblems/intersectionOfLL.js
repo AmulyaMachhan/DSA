@@ -67,6 +67,10 @@ head2.next.next = new Node(7);
 head2.next.next.next = head1.next.next.next
 
 // OPTIMAL APPROACH 1
+//The difference of length method requires various steps to work on it. Using the same concept of difference of length, a different approach can be implemented. The process is as follows:-
+
+// Take two dummy nodes for each list. Point each to the head of the lists.
+// Iterate over them. If anyone becomes null, point them to the head of the opposite lists and continue iterating until they collide.
 function intersectionOfLinkedLists_3(head1 , head2){
     let d1 = head1;
     let d2 = head2;
