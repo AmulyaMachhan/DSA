@@ -66,6 +66,16 @@ head2.next = new Node(8);
 head2.next.next = new Node(7);
 head2.next.next.next = head1.next.next.next
 
+// BETTER APPROACH
+// Using the difference in length 
+// Approach:
+// We will reduce the search length. This can be done by searching the length of the shorter linked list. How? Let’s see the process.
+
+// 1. Find the length of both lists.
+// 2. Find the positive difference between these lengths.
+// 3. Move the dummy pointer of the larger list by the difference achieved. This makes our search length reduced to a smaller list length.
+// 4. Move both pointers, each pointing two lists, ahead simultaneously if both do not collide.
+
 // BETTER APPROACH 
 // Using hashing 
 function intersectionOfLinkedLists_1(head1 , head2){
