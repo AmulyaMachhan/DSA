@@ -19,3 +19,32 @@
 // The number of nodes in each linked list is in the range [1, 100].
 // 0 <= Node.val <= 9
 // It is guaranteed that the list represents a number that does not have leading zeros.
+
+function addTwoNumbers(head1 , head2){
+    let total = 0;
+    let carry = 0;
+
+    let dummy = new Node(0);
+    let curr = dummy;
+
+    while(head1 || head2 || carry){
+        total = carry;
+
+        if(head1){
+            total += head1.val;
+            head1 = head1.next;
+        }
+
+        if(head2){
+            total += head2.val;
+            head2 = head2.next;
+        }
+
+        let sum = total%10;
+        carry = Math.floor(total/10);
+        dummy.next = new Node(sum);
+        dummy = dummy.next;
+    }
+
+    return curr.next;
+}
