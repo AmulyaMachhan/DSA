@@ -39,6 +39,8 @@ head2.next = new Node(8);
 head2.next.next = new Node(7);
 head2.next.next.next = new Node(6);
 
+// APPROACH 1
+// Using Elementary School Addition
 function addTwoNumbers(head1 , head2){
     let total = 0;
     let carry = 0;
@@ -69,3 +71,30 @@ function addTwoNumbers(head1 , head2){
 }
 
 console.log(addTwoNumbers(head1 , head2));
+
+// APPROACH 2
+// Using Recursion
+function addTwoNumbers_1(head1 , head2 , carry = 0){
+    if(head1 == null && head2 == null  &&  carry == 0){
+        return null;
+    }
+
+    let sum = carry;
+
+    if(head1){
+        sum += head1.val;
+        head1 = head1.next;
+    }
+
+    if(head2){
+        sum += head2.val;
+        head2 = head2.next;
+    }
+
+    carry = Math.floor(sum / 10);
+    let dummy = new Node(sum % 10);
+    dummy.next= addTwoNumbers_1(head1 , head2 , carry);
+    return dummy
+}
+
+console.log(addTwoNumbers_1(head1, head2));
