@@ -19,6 +19,25 @@
 // The number of nodes in each linked list is in the range [1, 100].
 // 0 <= Node.val <= 9
 // It is guaranteed that the list represents a number that does not have leading zeros.
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+head1 = new Node(1);
+head1.next = new Node(2);
+head1.next.next = new Node(3);
+head1.next.next.next = new Node(4);
+head1.next.next.next.next = new Node(5);
+head1.next.next.next.next.next = new Node(6);
+
+
+let head2 = new Node(9);
+head2.next = new Node(8);
+head2.next.next = new Node(7);
+head2.next.next.next = new Node(6);
 
 function addTwoNumbers(head1 , head2){
     let total = 0;
@@ -48,3 +67,5 @@ function addTwoNumbers(head1 , head2){
 
     return curr.next;
 }
+
+console.log(addTwoNumbers(head1 , head2));
