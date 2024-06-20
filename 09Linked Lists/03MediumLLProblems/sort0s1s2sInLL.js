@@ -40,6 +40,46 @@ head.next.next.next = new Node(2);
 head.next.next.next.next = new Node(1);
 head.next.next.next.next.next = new Node(1); 
 
+// OPTIMAL APPROACH
+function sort0s1s2s_2(head){
+    let zerosCount = 0;
+    let onesCount = 0;
+    let twosCount = 0;
+
+    let temp = head;
+    while(temp !== null){
+        if(temp.val == 0){
+            zerosCount++
+        }else if(temp.val == 1){
+            onesCount++;
+        }else if(temp.val == 2){
+            twosCount++;
+        }
+
+        temp = temp.next;
+    }
+
+    temp = head;
+
+    while(temp !== null){
+        if(zerosCount > 0){
+            temp.val = 0;
+            zerosCount--;
+        }else if(onesCount > 0){
+            temp.val = 1;
+            onesCount--;
+        }else if(twosCount > 0){
+            temp.val = 2;
+            twosCount--;
+        }
+
+        temp = temp.next;
+    }
+
+    return head;
+}
+console.log(sort0s1s2s_2(head));
+
 // BETTER APPROACH
 // By changing Links
 function sort0s1s2s_1(head){
