@@ -1,3 +1,17 @@
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(2);
+head.next = new Node(0);
+head.next.next = new Node(0);
+head.next.next.next = new Node(2);
+head.next.next.next.next = new Node(1);
+head.next.next.next.next.next = new Node(1); 
+
 function sort0s1s2s(head){
     if(head === null || head.next == null){
         return head;
@@ -5,14 +19,14 @@ function sort0s1s2s(head){
 
     const merge = (left , right) => {
         let dummy = new Node(0);
-        let curr = dummy.next;
+        let curr = dummy;
 
         while(left && right){
             if(left.val < right.val){
-                curr = left;
+                curr.next = left;
                 left = left.next;
             }else{
-                curr = right;
+                curr.next = right;
                 right = right.next;
             }
 
@@ -23,7 +37,7 @@ function sort0s1s2s(head){
 
         return dummy.next;
     }
-    
+
     const findMiddle = (node) => {
         let slow = head;
         let fast = head.next;
@@ -44,3 +58,5 @@ function sort0s1s2s(head){
 
     return merge(sortedLeft , sortedRight);
 }
+
+console.log(sort0s1s2s(head));
