@@ -40,6 +40,47 @@ head.next.next.next = new Node(2);
 head.next.next.next.next = new Node(1);
 head.next.next.next.next.next = new Node(1); 
 
+// BETTER APPROACH
+// By changing Links
+function sort0s1s2s_1(head){
+    let zeroNode = new Node(0);
+    let onesNode = new Node(0);
+    let twosNode = new Node(0);
+
+    let zero = zeroNode;
+    let ones = onesNode;
+    let twos = twosNode;
+
+    while(head !== null){
+        if(head.val == 0){
+            zero.next = head;
+            zero = zero.next; 
+        }else if(head.val == 1){
+            ones.next= head;
+            ones = ones.next;
+        }else if(head.val == 2){
+            twos.next = head;
+            twos = twos.next;
+        }
+
+        head = head.next;
+    }
+
+    zero.next = onesNode.next;
+    if(onesNode.next === null){
+        zero.next = twosNode.next;
+    }else{
+        ones.next = twosNode.next;
+    }
+    twos.next = null;
+
+    return (zeroNode.next !== null) ? zeroNode.next : (onesNode.next == null) ? onesNode.next : twosNode.next ;
+}
+
+console.log(sort0s1s2s_1(head));
+
+// BRUTE FORCE APPROACH 
+// Using a sorting algorithm
 function sort0s1s2s(head){
     if(head === null || head.next == null){
         return head;
