@@ -20,8 +20,22 @@
  
 // Follow-up: Can you solve the problem in O(1) extra memory space?
 
+
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+head.next.next.next = new Node(4);
+head.next.next.next.next = new Node(5); 
+
 function reverseLLInGroupOfKSize(head , k){
-    if(head === null) return;
+    if(head === null) return null;
     
     const reverse = (node) => {
         let temp = node;
@@ -38,8 +52,11 @@ function reverseLLInGroupOfKSize(head , k){
     }
 
     let tail = head;
-    for(let i = 0; i < k ; i++){
+    for(let i = 1; i < k ; i++){
         tail = tail.next;
+        if(tail == null){
+            return head;
+        }
     }
 
     let next = tail.next;
@@ -51,3 +68,5 @@ function reverseLLInGroupOfKSize(head , k){
     
     return tail;
 }
+
+console.log(reverseLLInGroupOfKSize(head , 3));
