@@ -19,6 +19,17 @@
 // Constraints:
 // 1 <= n <= 1021
 
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(9);
+head.next = new Node(9);
+head.next.next = new Node(9);
+
 function addOneToLinkedList(head){
     const reverse = (head) => {
         let temp = head;
@@ -58,3 +69,5 @@ function addOneToLinkedList(head){
 
     return reverse(head);
 }
+
+console.log(addOneToLinkedList(head));
