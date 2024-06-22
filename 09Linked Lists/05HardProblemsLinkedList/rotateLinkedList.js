@@ -29,7 +29,7 @@ head.next.next.next.next = new Node(5);
 
 // OPTIMAL APPRAOCH
 function rotateLinkedList(head , k){
-    if(head == null || head.next == null || k == 1 ){
+    if(head == null || head.next == null || k == 0 ){
         return head;
     }
 
