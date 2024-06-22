@@ -14,18 +14,34 @@
 // -100 <= Node.val <= 100
 // 0 <= k <= 2 * 109
 
-function rotateLinkedList(head){
+class Node {
+    constructor(val, next) {
+        this.val = (val === undefined ? 0 : val);
+        this.next = (next === undefined ? null : next);
+    }
+}
+
+let head = new Node(1);
+head.next = new Node(2);
+head.next.next = new Node(3);
+head.next.next.next = new Node(4);
+head.next.next.next.next = new Node(5); 
+
+// OPTIMAL APPRAOCH
+function rotateLinkedList(head , k){
     if(head == null || head.next == null || k == 1 ){
         return head;
     }
 
     let temp = head;
-    let length = 0;
+    let length = 1;
 
-    while(temp !== null){
+    while(temp.next !== null){
         length++;
         temp = temp.next;
     }
+ 
+    console.log(length);
 
     temp.next = head;
     k = k % length;
@@ -36,8 +52,10 @@ function rotateLinkedList(head){
         end--;
     }
 
-    temp.next = head;
+    head = temp.next;
     temp.next = null;
 
     return head;
 }
+
+console.log(rotateLinkedList(head , 2));
