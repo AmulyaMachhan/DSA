@@ -59,3 +59,27 @@ function rotateLinkedList(head , k){
 }
 
 console.log(rotateLinkedList(head , 2));
+
+// BRUTE FORCE APPROACH
+function rotateLinkedList_1(head , k){
+    if(head == null || head.next == null || k == 1){
+        return head;
+    }
+
+    for(let i = 0 ; i < k; i++){
+        let temp = head;
+
+        while(temp.next.next !== null){
+            temp = temp.next;
+        }
+
+        let end = temp.next;
+        temp.next = null;
+        end.next = head;
+        head = end;
+    }
+
+    return head; 
+}
+
+console.log(rotateLinkedList_1(head , 3));
